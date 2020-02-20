@@ -1,0 +1,36 @@
+footer{ 
+    background-color: #1b366d; 
+    min-height: 350px; 
+    font-family: 'Montserrat', sans-serif;
+}
+.footer{
+    color: #fff!important;
+}
+.color-white{
+    color: #fff;
+}
+hr{
+    border-top: 1px solid #001d38;
+}
+.footer-copyright{ 
+    font-size: 12px;
+    color: #ffffff;
+    font-weight: 600;
+}
+.footer-act-date{
+    margin: -20px 0 0 10px;
+}
+.social-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+    background-color: #fff;
+    color: #fff;
+    text-align: center;
+    margin-right: 10px;
+    padding-top: 7px;
+    border-radius: 50%;
+}
+footer a i {
+    color: #fff;
+}
