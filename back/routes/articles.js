@@ -19,4 +19,10 @@ router.get('/:id', async (req, res) => {
     await res.json(articles)
 })
 
+ // gett all articles by championnats
+ router.get('/championnats/:id', async (req, res) => {
+  const articles = await Article.find({"championnat.id": req.params.id}) // On récupère tout les articles par championnats
+  await res.json(articles)
+})
+
   module.exports = router;
