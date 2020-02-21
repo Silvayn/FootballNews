@@ -7,7 +7,8 @@ export const environment = {
 };
 
 export const apiUrl = {
-  articles: 'http://localhost:8080/articles'
+  articles: 'http://localhost:8080/articles',
+  championnats: 'http://localhost:8080/championnats'
 };
 
 /*

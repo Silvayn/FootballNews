@@ -1,3 +1,6 @@
 GET http://localhost:8080/articles/5e4d3bb338e522495d850bc0
 ###########################################
 GET http://localhost:8080/articles
+
+###########################################
+GET http://localhost:8080/championnats

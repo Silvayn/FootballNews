@@ -2,6 +2,7 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const articlesRouter = require('./routes/articles');
+const championnatsRouter = require('./routes/championnats');
 const cors = require('cors')
 
 /* Server MiddleWare, config and booting */
@@ -9,6 +10,7 @@ var app = express();
 app.use(express.json())
 app.use(cors());
 app.use('/articles', articlesRouter);
+app.use('/championnats', championnatsRouter);
 app.listen(8080, () =>
   console.log('server is running on port ' +8080)
 );
