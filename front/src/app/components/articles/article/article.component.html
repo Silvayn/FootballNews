@@ -1,0 +1,37 @@
+<article class="my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-8 breadcrumb">
+                <p><a [routerLink]="['/']">France</a> / {{ article?.championnat.name }} / {{ article?.titre }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="button-share d-flex justify-content-start">
+                    <a href="#" class="btn-facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+                    <a href="#" class="btn-twitter"><i class="fab fa-twitter"></i> Twitter</a>
+                    <a href="#" class="btn-instagram"><i class="fab fa-instagram"></i> Instagram</a>
+                </div>
+                <div class="post-card">
+                    <div class="row">
+                        <div class="col-md-12 post-header">
+                            <h2 class="post-title-main">{{ article?.titre | titlecase }}</h2>
+                        <p class="author">Publié le : {{ article?.dateCreation | date: 'short'}}, par {{ article?.autheur.nom }}</p>
+                            <img class="img-fluid" src="{{ article?.image }}" alt="{{ article?.titre | titlecase }}">
+                        </div>
+                        <div class="col-md-12 post-content">
+                            <p class="post-desc-main">{{ article?.contenu }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pagination d-flex flex-row justify-content-center">
+                    <a href="#">Actualité Précedante</a>
+                    <a href="#">Actualité Suivante</a>
+                </div>
+           </div>
+        </div>
+        
+    </div>
+</article>

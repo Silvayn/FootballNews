@@ -1,3 +1,6 @@
 .primary-color{
     background-color: #1b366d;
 }
+.nav-link {
+    cursor: pointer;
+}
