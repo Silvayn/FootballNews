@@ -9,10 +9,10 @@ GET http://localhost:8080/championnats
 GET http://localhost:8080/championnats?name=Ligue%201
 
 #################################
-GET http://localhost:8080/articles?championnat=2015
+GET http://localhost:8080/articles?championnat=2021
 
 #################################
 GET http://localhost:8080/teams?team=2015
 
 #################################
-GET http://localhost:8080/clubs?club=ogc-nice
+GET http://localhost:8080/clubs?club=satde-de-reims
