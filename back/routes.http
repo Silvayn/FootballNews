@@ -6,13 +6,13 @@ GET http://localhost:8080/articles
 GET http://localhost:8080/championnats
 
 #################################
-GET http://localhost:8080/championnats?name=Ligue%201
+GET http://localhost:8080/championnats?url=premier-league
 
 #################################
 GET http://localhost:8080/articles?championnat=2021
 
 #################################
-GET http://localhost:8080/teams?team=2015
+GET http://localhost:8080/teams?team=2021
 
 #################################
-GET http://localhost:8080/clubs?club=satde-de-reims
+GET http://localhost:8080/clubs?club=nimes-olympique

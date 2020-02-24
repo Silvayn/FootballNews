@@ -19,10 +19,10 @@ router.get('/', async (req, res) => {
   /* let c = req.params.club; */
   let clubs;
   try {
-        let regex = /-/gi;
-        let result = c.replace(regex, ' ').toLowerCase();
-        let r = new RegExp(result, 'i');
-        clubs = await Club.findOne({ name: r}) // On récupère tout les articles par clubs
+    let regex = /-/gi;
+    let result = c.replace(regex, ' ').toLowerCase();
+    let r = new RegExp(result, 'iu');
+    clubs = await Club.findOne({ name: r }) // On récupère tout les articles par clubs
     res.json(clubs);
   } catch (err) { throw err; }
 });

@@ -27,7 +27,7 @@
                                 <div class="col-8">
                                     <div class="col-md-12 post-content">
                                         <a [routerLink]="['/articles/', article?._id]"><h2 class="post-title">{{ article?.titre | uppercase }}</h2></a>
-                                        <p class="author">Publié le : {{ article?.dateCreation | date: 'short'}}, par {{ article?.autheur.nom }}</p>
+                                        <p class="author">Publié le : {{ article?.dateCreation | date: 'dd/MM/yyy'}}, par {{ article?.autheur.nom }}</p>
                                         <p class="post-desc">{{ getExtract(article?.contenu) }}</p>
                                     </div>
                                 </div>

@@ -22,6 +22,7 @@
             <p><a [routerLink]="['/']">Acceuil</a> / {{championnat?.name}}</p>
         </div>
         <div *ngFor="let article of articles">
+            {{article.championnat.name}}
             <div class="row">
                 <div class="col-md-8">
                     <article>

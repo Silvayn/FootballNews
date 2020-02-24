@@ -25,7 +25,8 @@ const routes: Routes = [
     },
     ]
   },
-  { path: ':championnat/:id', component: ArticleComponent, pathMatch: 'full' } // Détail Article
+  { path: ':championnat/:id', component: ArticleComponent, pathMatch: 'full' }, // Détail Article
+  {path:'admin', loadChildren: './admin/admin.module#AdminModule'},
 ];
 
 @NgModule({
