@@ -11,7 +11,7 @@
             <div *ngFor="let teams of teamsList">
                 <ul class="d-flex flex-wrap justify-content-between">
                     <li *ngFor="let team of teams.equipes">
-                        <a [routerLink]="['/clubs/', getUri(team.name).toLowerCase()]">
+                        <a routerLink="/clubs/{{ getUri(team?.name).toLowerCase() }}/actualites">
                             <img src="{{ team.crestUrl }}" alt="{{ team.name }}">
                         </a>
                     </li>
@@ -28,12 +28,14 @@
                         <div class="post-card-news">
                             <div class="row">
                                 <div class="col-4">
-                                    <img class="img-fluid" src="{{article?.image}}" alt="{{ article?.titre | titlecase }}">
+                                    <a [routerLink]="['/articles/', article?._id]">
+                                        <img class="img-fluid" src="{{article?.image}}" alt="{{ article?.titre | titlecase }}">
+                                    </a>
                                 </div>
                                 <div class="col-8">
                                     <div class="col-md-12 post-content">
                                         <a routerLink="/{{article?.championnat.url}}/{{article?._id}}"><h2 class="post-title">{{ article?.titre | uppercase }}</h2></a>
-                                        <p class="author">Publié le : {{ article?.dateCreation | date: 'short'}}, par {{ article?.autheur.nom }}</p>
+                                        <p class="author">Publié le : {{ article?.dateCreation | date: 'dd/MM/yyy'}}, par {{ article?.autheur.nom }}</p>
                                         <p class="post-desc">{{ getExtract(article?.contenu) }}</p>
                                     </div>
                                 </div>

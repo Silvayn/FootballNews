@@ -1,1 +1,42 @@
-<p>clubs-articles works!</p>
+
+<!-- Section Home -->
+<section class="my-5">
+    <div class="container">
+        <div *ngFor="let article of articles">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/clubs/{{ getUri(article?.teams.name).toLowerCase() }}/effectif">Détails du club</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" routerLink="/clubs/{{ getUri(article?.teams.name).toLowerCase() }}/actualites">Actualités</a>
+                </li>
+            </ul>
+            <div class="section-clubs-news">
+                <h1>News : {{ article?.teams.name }}</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <article>
+                        <div class="post-card-news">
+                            <div class="row">
+                                <div class="col-4">
+                                    <a [routerLink]="['/articles/', article?._id]">
+                                        <img class="img-fluid" src="{{article?.image}}" alt="{{ article?.titre | titlecase }}">
+                                    </a>
+                                </div>
+                                <div class="col-8">
+                                    <div class="col-md-12 post-content">
+                                        <a [routerLink]="['/articles/', article?._id]"><h2 class="post-title">{{ article?.titre | uppercase }}</h2></a>
+                                        <p class="author">Publié le : {{ article?.dateCreation | date: 'short'}}, par {{ article?.autheur.nom }}</p>
+                                        <p class="post-desc">{{ getExtract(article?.contenu) }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section Home -->

@@ -14,9 +14,9 @@ const url = require('url');
 
 
 // gett all clubs 
-router.get('/:club', async (req, res) => {
-  /* let c = req.query.club; */
-  let c = req.params.club;
+router.get('/', async (req, res) => {
+  let c = req.query.club;
+  /* let c = req.params.club; */
   let clubs;
   try {
         let regex = /-/gi;
@@ -25,6 +25,6 @@ router.get('/:club', async (req, res) => {
         clubs = await Club.findOne({ name: r}) // On récupère tout les articles par clubs
     res.json(clubs);
   } catch (err) { throw err; }
-})
+});
 
 module.exports = router;

@@ -10,6 +10,7 @@ import { ArticlesComponent } from './components/articles/articles.component';
 import { ArticleComponent } from './components/articles/article/article.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ClubsArticlesComponent } from './components/clubs-articles/clubs-articles.component';
+import { ClubsEffectifsComponent } from './components/clubs-effectifs/clubs-effectifs.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ClubsArticlesComponent } from './components/clubs-articles/clubs-articl
     ArticlesComponent,
     ArticleComponent,
     ClubsArticlesComponent,
+    ClubsEffectifsComponent,
   ],
   imports: [
     BrowserModule,

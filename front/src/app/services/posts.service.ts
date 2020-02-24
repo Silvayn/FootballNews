@@ -21,6 +21,10 @@ export class PostsService {
     return this.http.get(apiUrl.articles + '?championnat=' + champ);
   }
 
+  getArticlesByClub(club) {
+    return this.http.get(apiUrl.articles + '?club=' + club);
+  }
+
 }
 
 

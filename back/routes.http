@@ -15,4 +15,4 @@ GET http://localhost:8080/articles?championnat=2015
 GET http://localhost:8080/teams?team=2015
 
 #################################
-GET http://localhost:8080/clubs/olympique-de-marseille
+GET http://localhost:8080/clubs?club=ogc-nice

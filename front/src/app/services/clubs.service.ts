@@ -13,7 +13,7 @@ export class ClubsService {
     return this.http.get(apiUrl.clubs);
   }
 
-  getTeamsByChampionnat(club?: string) {
+  getTeamsByUrl(club?: string) {
     return this.http.get(apiUrl.clubs + '?club=' + club);
   }
 

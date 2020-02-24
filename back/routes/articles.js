@@ -15,11 +15,14 @@ router.get('/:id', async (req, res) => {
 
 // gett all articles 
 router.get('/', async (req, res) => {
-  let championnat = req.query.championnat
+  let championnat = req.query.championnat;
+  let club = req.query.club;
   let articles;
   try {
     if (championnat) {
       articles = await Article.find({ "championnat.id": championnat }) // On récupère tout les articles par championnats
+    }if (club) {
+      articles = await Article.find({ "teams.id": club }) // On récupère tout les articles par clubs
     } else {
       articles = await Article.find() // On récupère tout les articles
     }

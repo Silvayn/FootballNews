@@ -1,0 +1,40 @@
+a {
+    text-decoration: none;
+    color: #000;
+}
+.section-clubs-news h1 {
+    font-weight: normal;
+    font-size: 22px;
+    margin: 15px 0;
+}
+.post-header {
+    width: 100%;
+    height: 100%;
+}
+.post-header img {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align:  middle;
+}
+.post-content .post-title-main {
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.post-content .post-desc-main {
+    color: #000;
+    text-align: justify
+}
+.post-card-news{
+    margin: 10px 0;
+}
+.post-title{
+    text-align: left;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    vertical-align: center;
+}
+.post-desc{
+    font-size: 12px;
+}

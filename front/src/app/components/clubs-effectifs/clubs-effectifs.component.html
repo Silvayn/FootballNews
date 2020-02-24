@@ -1,0 +1,97 @@
+
+<!-- Section Home -->
+<section class="my-5">
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" routerLink="/clubs/{{ getUri(club?.name).toLowerCase() }}/effectif">Détails du club</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/clubs/{{ getUri(club?.name).toLowerCase() }}/actualites">Actualités</a>
+            </li>
+        </ul>
+        <div class="section-clubs-news">
+            <h1>{{ club?.name }}</h1>
+        </div>
+        <div class="section-clubs-infos">
+            <div class="row">
+                <div class="col-2 clubs-img">
+                    <img src="{{ club?.crestUrl }}" alt="{{ club?.name }}" height="150">
+                </div>
+                <div class="col-5 clubs-infos">
+                    <div class=" clubs-head col-12">
+                        Infos
+                    </div>
+                    <ul class="clubs-details">
+                        <li>
+                            <span class="clubs-title">Nom :</span><br>
+                            {{ club?.name }} ({{ club?.tla }})
+                        </li>
+                        <li>
+                            <span class="clubs-title">Pays :</span> {{ club?.area.name }}
+                        </li>
+                        <li>
+                            <span class="clubs-title">Fondé en :</span> {{ club?.founded }}
+                        </li>
+                        <li>
+                            <span class="clubs-title">Site officiel :</span><br>
+                            <a class="website" href="{{ club.website }}" target="_blank">{{ club?.website }}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-5 clubs-infos">
+                    <div class=" clubs-head col-12">
+                        Satde
+                    </div>
+                    <ul class="clubs-details">
+                        <li>
+                            <span class="clubs-title">Nom :</span> {{ club?.venue }}
+                        </li>
+                        <li>
+                            <span class="clubs-title">Adresse :</span><br>
+                            {{ club?.address }}
+                        </li>
+                        <li>
+                            <span class="clubs-title">Ville :</span> {{ club?.shortName }}
+                        </li>
+                        <li>
+                            <span class="clubs-title">Couleurs :</span><br>
+                            {{ club?.clubColors }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <table  class="table-list">
+                    <thead class="thead">
+                        <tr class="thead-tr">
+                          <th scope="col">
+                              <span style="margin-left: 10px;">#</span>
+                              <span style="margin-left: 25px;">Nom</span>
+                            </th>
+                          <th scope="col">Poste</th>
+                          <th scope="col">Pays</th>
+                          <th scope="col">Niassance</th>
+                          <th scope="col">Role</th>
+                        </tr>
+                      </thead>
+                    <tbody *ngFor="let c of club.squad">
+                    <tr>
+                        <td>
+                            <span class="player-number">{{ c?.shirtNumber }}</span>
+                            <span class="player-name">{{ c?.name | titlecase }}</span>
+                        </td>
+                    <td>{{ c?.position }}</td>
+                    <td>{{ c?.nationality }}</td>
+                    <td> {{ c?.dateOfBirth | date }}</td>
+                    <td>{{ c?.role }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section Home -->

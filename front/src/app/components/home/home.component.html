@@ -8,7 +8,9 @@
                         <div class="post-card">
                             <div class="row">
                                 <div class="col-md-12 post-header">
-                                    <img class="img-fluid" src="{{article?.image}}" alt="{{ article?.titre | titlecase }}">
+                                    <a [routerLink]="['/articles/', article?._id]">
+                                        <img class="img-fluid" src="{{article?.image}}" alt="{{ article?.titre | titlecase }}">
+                                    </a>
                                 </div>
                                 <div class="col-md-12 post-content">
                                     <a [routerLink]="['/articles/', article?._id]"><h2 class="post-title-main">{{ article?.titre | titlecase }}</h2></a>
@@ -34,7 +36,9 @@
                         <div class="post-card-news">
                             <div class="row">
                                 <div class="col-4">
-                                    <img class="img-fluid" src="{{article?.image}}" alt="{{ article?.titre | titlecase }}">
+                                    <a [routerLink]="['/articles/', article?._id]">
+                                        <img class="img-fluid" src="{{article?.image}}" alt="{{ article?.titre | titlecase }}">
+                                    </a>
                                 </div>
                                 <div class="col-8">
                                     <div class="col-md-12 post-content">
