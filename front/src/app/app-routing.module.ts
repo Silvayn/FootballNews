@@ -7,18 +7,20 @@ import { ClubsArticlesComponent } from './components/clubs-articles/clubs-articl
 
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: ':championnat',
+  { path: '', component: HomeComponent },
+  {
+    path: 'championnat',
     children: [
-      {path: '', component: ArticlesComponent, pathMatch: 'full'},
-      {path: ':id', component: ArticleComponent, pathMatch: 'full'}
+      { path: ':championnat', component: ArticlesComponent, pathMatch: 'full' },
     ]
   },
-  {path: 'clubs',
+  {
+    path: 'clubs',
     children: [
-      {path: ':club', component: ClubsArticlesComponent, pathMatch: 'full'},
+      { path: ':club', component: ClubsArticlesComponent, pathMatch: 'full' },
     ]
-  }
+  },
+  { path: ':championnat/:id', component: ArticleComponent, pathMatch: 'full' }
 ];
 
 @NgModule({
