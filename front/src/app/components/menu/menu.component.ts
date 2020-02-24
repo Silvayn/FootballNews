@@ -10,20 +10,25 @@ export class MenuComponent implements OnInit {
   championnats;
   objectKeys = Object.keys;
   objectValues = Object.values;
-  pays = [{ 'France': 'France' },
-  { 'England': 'Angleterre' },
-  { 'Spain': 'Espagne' }];
+  pays = [
+    { 'France': 'France' },
+    { 'England': 'Angleterre' },
+    { 'Spain': 'Espagne' },
+    { 'Italy': 'Italie' },
+    { 'Europe': 'Coupe d\'Europe' }
+  ];
+
   constructor(private champ: ChampionnatsService) { }
 
   ngOnInit() {
-    this.championnats = []
+    this.championnats = [];
     this.pays.forEach(elt => {
-      let paysEn = Object.keys(elt)[0]
-      var paysFr = Object.values(elt)[0]
-      this.champ.getChampionnatByName(paysEn).subscribe((data) => {
-        let item = {}
-        item[paysFr] = data
-        this.championnats.push(item)
+      let paysEn = Object.keys(elt)[0];
+      var paysFr = Object.values(elt)[0];
+      this.champ.getChampionnatByPays(paysEn).subscribe((data) => {
+        let item = {'pays': paysFr}
+        Object.assign(item, data[0]);
+        this.championnats.push(item);
       });
     });
 

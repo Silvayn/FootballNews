@@ -4,3 +4,15 @@ GET http://localhost:8080/articles
 
 ###########################################
 GET http://localhost:8080/championnats
+
+#################################
+GET http://localhost:8080/championnats?name=Ligue%201
+
+#################################
+GET http://localhost:8080/articles?championnat=2015
+
+#################################
+GET http://localhost:8080/teams?team=2015
+
+#################################
+GET http://localhost:8080/clubs/olympique-de-marseille

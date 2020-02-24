@@ -9,13 +9,17 @@ export class PostsService {
 
   constructor(private http: HttpClient) { }
 
-  getArticles(){
-  return this.http.get(apiUrl.articles);
+  getArticles() {
+    return this.http.get(apiUrl.articles);
   }
 
-  getArticleById(id: number){
+  getArticleById(id: number) {
     return this.http.get(apiUrl.articles + '/' + id);
-    }
+  }
+
+  getArticlesByChampionnat(champ) {
+    return this.http.get(apiUrl.articles + '?championnat=' + champ);
+  }
 
 }
 

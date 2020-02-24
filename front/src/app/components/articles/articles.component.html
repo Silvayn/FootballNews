@@ -1,1 +1,54 @@
-<p>articles works!</p>
+
+<!-- Section Championnat Article -->
+<section class="my-5">
+    <div class="container">
+        <div class="list-teams">
+            <div class="row">
+                <div class="club-title col-12">
+                    Clubs: {{ championnat?.name }}
+                </div>
+            </div>
+            <div *ngFor="let teams of teamsList">
+                <ul class="d-flex flex-wrap justify-content-between">
+                    <li *ngFor="let team of teams.equipes">
+                        <a [routerLink]="['/clubs/', getUri(team.name).toLowerCase()]">
+                            <img src="{{ team.crestUrl }}" alt="{{ team.name }}">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-8 breadcrumb">
+            <p><a [routerLink]="['/']">Acceuil</a> / {{championnat?.name}}</p>
+        </div>
+        <div *ngFor="let article of articles">
+            <div class="row">
+                <div class="col-md-8">
+                    <article>
+                        <div class="post-card-news">
+                            <div class="row">
+                                <div class="col-4">
+                                    <img class="img-fluid" src="{{article?.image}}" alt="{{ article?.titre | titlecase }}">
+                                </div>
+                                <div class="col-8">
+                                    <div class="col-md-12 post-content">
+                                        <a routerLink="/{{article?.championnat.url}}/{{article?._id}}"><h2 class="post-title">{{ article?.titre | uppercase }}</h2></a>
+                                        <p class="author">Publié le : {{ article?.dateCreation | date: 'short'}}, par {{ article?.autheur.nom }}</p>
+                                        <p class="post-desc">{{ getExtract(article?.contenu) }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class=" col-8 pagination d-flex flex-row justify-content-center">
+                <a href="#">Actualité Précedante</a>
+                <a href="#">Actualité Suivante</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Section Championnat Article -->

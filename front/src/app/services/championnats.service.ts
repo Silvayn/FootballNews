@@ -12,10 +12,19 @@ export class ChampionnatsService {
   getChampionnats() {
     return this.http.get(apiUrl.championnats);
   }
-  getChampionnatByName(pays?: string) {
-    console.log(apiUrl.championnats+'?pays='+pays)
-    return this.http.get(apiUrl.championnats+'?pays='+pays);
+
+  getChampionnatByPays(pays?: string) {
+    return this.http.get(apiUrl.championnats + '?pays=' + pays);
   }
+
+  getChampionnatByName(name?: string) {
+    return this.http.get(apiUrl.championnats + '?name=' + name);
+  }
+
+  getChampionnatByUrl(url?: string) {
+    return this.http.get(apiUrl.championnats + '?url=' + url);
+  }
+
   getChampionnatById(id: number) {
     return this.http.get(apiUrl.championnats + '/' + id);
   }

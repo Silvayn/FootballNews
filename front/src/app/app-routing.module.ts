@@ -3,17 +3,22 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { ArticleComponent } from './components/articles/article/article.component';
 import { ArticlesComponent } from './components/articles/articles.component';
+import { ClubsArticlesComponent } from './components/clubs-articles/clubs-articles.component';
 
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {
-    path: 'articles',
+  {path: ':championnat',
     children: [
-      {path: ':id', component: ArticleComponent, pathMatch: 'full'},
-      {path: '', component: ArticlesComponent, pathMatch: 'full'}
+      {path: '', component: ArticlesComponent, pathMatch: 'full'},
+      {path: ':id', component: ArticleComponent, pathMatch: 'full'}
     ]
   },
+  {path: 'clubs',
+    children: [
+      {path: ':club', component: ClubsArticlesComponent, pathMatch: 'full'},
+    ]
+  }
 ];
 
 @NgModule({

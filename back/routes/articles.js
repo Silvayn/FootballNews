@@ -6,23 +6,25 @@ const url = require('url')
 
 // Get one /articles/:id
 router.get('/:id', async (req, res) => {
-    try {
-      let article = await Article.findOne({ _id: req.params.id });
-      res.json(article);
-    } catch (err) { throw err; }
-  });
+  try {
+    let article = await Article.findOne({ _id: req.params.id });
+    res.json(article);
+  } catch (err) { throw err; }
+});
 
 
-  // gett all articles 
- router.get('/', async (req, res) => {
-    const articles = await Article.find() // On récupère tout les articles
-    await res.json(articles)
+// gett all articles 
+router.get('/', async (req, res) => {
+  let championnat = req.query.championnat
+  let articles;
+  try {
+    if (championnat) {
+      articles = await Article.find({ "championnat.id": championnat }) // On récupère tout les articles par championnats
+    } else {
+      articles = await Article.find() // On récupère tout les articles
+    }
+    res.json(articles)
+  } catch (err) { throw err; }
 })
 
- // gett all articles by championnats
- router.get('/championnats/:id', async (req, res) => {
-  const articles = await Article.find({"championnat.id": req.params.id}) // On récupère tout les articles par championnats
-  await res.json(articles)
-})
-
-  module.exports = router;
+module.exports = router;

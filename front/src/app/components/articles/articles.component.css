@@ -1,0 +1,96 @@
+ul {
+    list-style: none;
+   padding: 0;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+.section-title {
+    font-weight: 600;
+    font-family: 'Lato' Arial sans-serif;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+.club-title {
+    background-color: #d1d5da;
+    text-align: center;
+}
+.list-teams {
+    width: 100%;
+    height: auto;
+}
+.list-teams ul li {
+    width: 42px;
+    height: 45px;
+    margin: 5px 0;
+}
+.list-teams ul li a img {
+    width: 42px;
+    height: 45px;
+}
+.breadcrumb {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+}
+.breadcrumb p {
+    color: #a8aeb4;
+    font-size: 14px;
+    font-weight: 600;
+}
+.breadcrumb p a {
+    color: #a8aeb4;
+    font-size: 14px;
+    font-weight: 600;
+}
+.post-header {
+    width: 100%;
+    height: 100%;
+}
+.post-header img {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align:  middle;
+}
+.post-content .post-title-main {
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.post-content .post-desc-main {
+    color: #000;
+    text-align: justify
+}
+
+.post-card-news{
+    margin: 10px 0;
+}
+.post-title{
+    text-align: left;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    vertical-align: center;
+}
+.post-desc{
+    font-size: 12px;
+}
+.author{
+    color: #a8aeb4;
+    font-size: 14px;
+}
+.pagination{
+    width: 100%;
+    margin-top: 40px;
+}
+.pagination a{
+    text-decoration: none;
+    margin: 0 25px;
+    width: 300px;
+    padding: 15px;
+    background-color: #1b366d;
+    color: white !important;
+    text-transform: uppercase;
+    text-align: center;
+}

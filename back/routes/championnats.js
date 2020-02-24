@@ -16,9 +16,17 @@ router.get('/:id', async (req, res) => {
 // gett all championnats 
 router.get('/', async (req, res) => {
   let pays = req.query.pays
+  let name = req.query.name
+  let url = req.query.url
   let championnats
   if (pays) {
-    championnats = await Championnat.find({ "area.name": pays }, { 'name':1, '_id':1 }) // On récupère tout les championnats
+    championnats = await Championnat.find({ "area.name": pays }, { 'name': 1, '_id': 1, 'url':1 }) // On récupère tout les championnats
+  } else if (url) {
+    championnats = await Championnat.findOne({ "url": url.toString() }) // On récupère tout les championnats
+  }
+  else if (name) {
+    name = new RegExp(name)
+    championnats = await Championnat.findOne({ "name": { $regex: name  , $options: 'i' } }) // On récupère tout les championnats
   } else {
     championnats = await Championnat.find() // On récupère tout les championnats
   }

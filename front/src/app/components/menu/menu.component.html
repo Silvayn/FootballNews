@@ -1,7 +1,7 @@
-{{championnats|json}}
+
 <!--Navbar -->
 <nav class="mb-1 navbar navbar-expand-lg navbar-dark primary-color">
-  <a class="navbar-brand" href="#">FootballNews</a>
+  <a [routerLink]="['/']" class="navbar-brand">FootballNews</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
     aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -10,25 +10,11 @@
     <ul class="navbar-nav mr-auto">
       <li *ngFor="let championnat of championnats" class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">{{objectKeys(championnat)}}
-        </a>
-        <div *ngFor="let elt of objectValues(championnat)" class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">{{elt[0].name}}</a> 
-        </div>
-      </li>
-      
-      <li class="nav-item">
-        <a class="nav-link" href="#">Autres Champ</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">Coupe d'Europe
+          aria-expanded="false">{{championnat.pays}}
         </a>
         <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+          <a [routerLink]="['/', championnat.url]" class="dropdown-item">{{championnat.name}}</a> 
+        </div> 
       </li>
     </ul>
     <ul class="navbar-nav ml-auto nav-flex-icons">

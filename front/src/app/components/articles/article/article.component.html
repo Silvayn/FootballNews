@@ -1,8 +1,9 @@
+
 <article class="my-5">
     <div class="container">
         <div class="row">
             <div class="col-8 breadcrumb">
-                <p><a [routerLink]="['/']">France</a> / {{ article?.championnat.name }} / {{ article?.titre }}</p>
+            <p><a [routerLink]="['/']">Acceuil</a> / <a [routerLink]="['/', article?.championnat.url]">{{article?.championnat.name}}</a> / {{ article?.titre }}</p>
             </div>
         </div>
     </div>
@@ -18,7 +19,7 @@
                     <div class="row">
                         <div class="col-md-12 post-header">
                             <h2 class="post-title-main">{{ article?.titre | titlecase }}</h2>
-                        <p class="author">Publié le : {{ article?.dateCreation | date: 'short'}}, par {{ article?.autheur.nom }}</p>
+                            <p class="author">Publié le : {{ article?.dateCreation | date: 'short'}}, par {{ article?.autheur.nom }}</p>
                             <img class="img-fluid" src="{{ article?.image }}" alt="{{ article?.titre | titlecase }}">
                         </div>
                         <div class="col-md-12 post-content">
