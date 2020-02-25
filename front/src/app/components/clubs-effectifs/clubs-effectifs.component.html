@@ -73,7 +73,8 @@
                             </th>
                           <th scope="col">Poste</th>
                           <th scope="col">Pays</th>
-                          <th scope="col">Niassance</th>
+                          <th scope="col">Age</th>
+                          <th scope="col">Naissance</th>
                           <th scope="col">Role</th>
                         </tr>
                       </thead>
@@ -85,7 +86,8 @@
                         </td>
                     <td>{{ c?.position }}</td>
                     <td>{{ c?.nationality }}</td>
-                    <td> {{ c?.dateOfBirth | date }}</td>
+                    <td>{{ getAge(c?.dateOfBirth) }} ans</td>
+                    <td> {{ c?.dateOfBirth | date:'dd/MM/yyy' }}</td>
                     <td>{{ c?.role }}</td>
                     </tr>
                     </tbody>

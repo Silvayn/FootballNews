@@ -34,3 +34,19 @@ hr{
 footer a i {
     color: #fff;
 }
+a {
+    text-decoration: none;
+    color: #000;
+}
+.post-title{
+    text-align: left;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    vertical-align: center;
+    color: #fff;
+}
+.author {
+    color: #a8aeb4;
+    font-size: 14px;
+}

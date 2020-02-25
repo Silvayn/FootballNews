@@ -25,10 +25,15 @@ export class ClubsEffectifsComponent implements OnInit {
     });
   }
 
-  getUri(txt: string){
+  getUri(txt: string) {
     let regex = / /gi;
     let result = txt.replace(regex, '-');
     return result;
+  }
+
+  getAge(birthday) {
+    birthday = new Date(birthday);
+    return new Number((new Date().getTime() - birthday.getTime()) / 31536000000).toFixed(0);
   }
 
 }

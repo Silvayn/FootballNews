@@ -2,18 +2,19 @@
 <!-- Section Home -->
 <section class="my-5">
     <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/clubs/{{ getUri(club?.name).toLowerCase() }}/effectif">Détails du club</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" routerLink="/clubs/{{ getUri(club?.name).toLowerCase() }}/actualites">Actualités</a>
+            </li>
+        </ul>
+        <div class="section-clubs-news">
+            <h1>News : {{ club?.name }}</h1>
+        </div>
         <div *ngFor="let article of articles">
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                  <a class="nav-link" routerLink="/clubs/{{ getUri(article?.teams.name).toLowerCase() }}/effectif">Détails du club</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link active" routerLink="/clubs/{{ getUri(article?.teams.name).toLowerCase() }}/actualites">Actualités</a>
-                </li>
-            </ul>
-            <div class="section-clubs-news">
-                <h1>News : {{ article?.teams.name }}</h1>
-            </div>
+            
             <div class="row">
                 <div class="col-md-8">
                     <article>

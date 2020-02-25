@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-8 breadcrumb">
-            <p><a [routerLink]="['/']">Acceuil</a> / <a [routerLink]="['/', article?.championnat.url]">{{article?.championnat.name}}</a> / {{ article?.titre }}</p>
+            <p><a [routerLink]="['/']">Acceuil</a> / <a routerLink="/{{ article?.championnat.url }}">{{article?.championnat.name}}</a> / {{ article?.titre }}</p>
             </div>
         </div>
     </div>
