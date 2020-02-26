@@ -20,16 +20,19 @@ const routes: Routes = [
   {
     path: 'clubs',
     children: [
-      { path: ':club',children: [
-        { path: 'actualites', component: ClubsArticlesComponent, pathMatch: 'full' }, // List Articles Championnats
-        { path: 'effectif', component: ClubsEffectifsComponent, pathMatch: 'full' }, // List Articles Championnats
-      ]
-    },
+      {
+        path: ':club', children: [
+          { path: 'actualites', component: ClubsArticlesComponent, pathMatch: 'full' }, // List Articles Championnats
+          { path: 'effectif', component: ClubsEffectifsComponent, pathMatch: 'full' }, // List Articles Championnats
+        ]
+      },
     ]
   },
-  { path: ':championnat/:id', component: ArticleComponent, pathMatch: 'full' },   // Détail Article
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'admin', loadChildren: () => import(`./admin/admin.module`).then(m => m.AdminModule) },
+  { path: ':championnat/:id', component: ArticleComponent, pathMatch: 'full' } // Détail Article
+  
 ];
 
 @NgModule({

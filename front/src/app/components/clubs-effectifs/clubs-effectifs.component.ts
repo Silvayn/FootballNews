@@ -13,6 +13,7 @@ export class ClubsEffectifsComponent implements OnInit {
 
   clubUrl: string;
   club;
+  standingsList;
 
   constructor(private router: ActivatedRoute, private cS: ChampionnatsService, private pS: PostsService, private clubS: ClubsService) { }
 
@@ -23,12 +24,18 @@ export class ClubsEffectifsComponent implements OnInit {
         this.club = data;
       });
     });
+    this.cS.getChampionnatStandings(2015).subscribe((data) => this.standingsList = data)
   }
 
-  getUri(txt: string){
+  getUri(txt: string) {
     let regex = / /gi;
     let result = txt.replace(regex, '-');
     return result;
+  }
+
+  getAge(birthday) {
+    birthday = new Date(birthday);
+    return new Number((new Date().getTime() - birthday.getTime()) / 31536000000).toFixed(0);
   }
 
 }

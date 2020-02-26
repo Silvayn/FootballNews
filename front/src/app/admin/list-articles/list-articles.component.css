@@ -1,0 +1,25 @@
+a{
+    color: blue;
+    cursor: pointer;
+}
+.h1-admin{
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.table-list-annonces{
+    width: 100%;
+    font-size: 12px;
+    margin: 5% auto;
+    border-collapse: collapse;
+}
+.table-list-annonces tr{
+    height: 25px;
+}
+.table-list-annonces tr td:first-child{
+    height: 25px;
+    display: flex;
+    align-items: center;
+}
+.table-list-annonces tr:nth-child(2n+1){
+    background-color: #efeeee;
+}

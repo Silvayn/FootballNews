@@ -6,15 +6,16 @@ GET http://localhost:8080/articles
 GET http://localhost:8080/championnats
 
 #################################
-GET http://localhost:8080/championnats?name=Ligue%201
+GET http://localhost:8080/championnats?url=premier-league
 
 #################################
 GET http://localhost:8080/articles?championnat=2021
 
 #################################
-GET http://localhost:8080/teams?team=2015
+GET http://localhost:8080/teams?team=2021
 
 #################################
+<<<<<<< HEAD
 GET http://localhost:8080/clubs?club=satde-de-reims
 ############################################
 POST http://localhost:8080/users/register
@@ -33,3 +34,9 @@ Content-Type: application/json
   "email": "petitbogoss@example.com",
   "password": "bogoss13"
 }
+=======
+GET http://localhost:8080/clubs?club=nimes-olympique
+
+#################################
+DELETE http://localhost:8080/articles/5e55000dcac217237498c5ea
+>>>>>>> 7763ffed8cdfa83b802ec2f795fbbc73a20245d1

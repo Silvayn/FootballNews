@@ -6,6 +6,10 @@ a {
     text-decoration: none;
     color: #000;
 }
+.infos-posts {
+    font-weight: 600;
+    font-size:16px;
+}
 .section-title {
     font-weight: 600;
     font-family: 'Lato' Arial sans-serif;
@@ -93,4 +97,25 @@ a {
     color: white !important;
     text-transform: uppercase;
     text-align: center;
+}
+
+table {
+    border: 1px solid #dee2e6;
+}
+.thead-blue{
+    background-color: #004d81;
+    color: #fff;
+}
+tbody tr {
+    font-size: 12px;
+    color: #000;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.table td, .table th {
+    padding: 6px 5px;
+}
+td img {
+    width: 20px;
+    height: 20px;
 }

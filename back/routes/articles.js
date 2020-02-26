@@ -20,14 +20,35 @@ router.get('/', async (req, res) => {
   let articles;
   try {
     if (championnat) {
-      articles = await Article.find({ "championnat.id": championnat }) // On récupère tout les articles par championnats
-    }if (club) {
-      articles = await Article.find({ "teams.id": club }) // On récupère tout les articles par clubs
+      articles = await Article.find({ "championnat.id": Number(championnat) }).sort({dateCreation:-1}); // On récupère tout les articles par championnats
+    } else if (club) {
+      articles = await Article.find({ "teams.id": club }).sort({dateCreation:-1}); // On récupère tout les articles par clubs
     } else {
-      articles = await Article.find() // On récupère tout les articles
+      articles = await Article.find().sort({x:-1}).sort({dateCreation:-1})/* .limit(10) */; // On récupère tout les articles
     }
     res.json(articles)
   } catch (err) { throw err; }
 })
+
+//CREATE ONE /articles
+router.post('/', jsonParser ,async (req, res) => {
+  try{
+      let article = new Article(req.body);
+      await article.save();
+      res.status(201).json(article);
+  }catch(err){
+      throw err;
+  }
+});
+
+//DELETE ONE /articles/:id
+router.delete('/:id', async (req, res) => {
+  try{
+    let article = await Article.deleteOne({_id: req.params.id});
+    res.json(article);
+  }catch(err){
+      throw err;
+  }
+});
 
 module.exports = router;

@@ -15,6 +15,7 @@ export class ArticlesComponent implements OnInit {
   championnatName;
   articles;
   teamsList;
+  standingsList;
   constructor(private router: ActivatedRoute, private cS: ChampionnatsService, private pS: PostsService, private tS: TeamsService) { }
 
   ngOnInit(): void {
@@ -24,11 +25,12 @@ export class ArticlesComponent implements OnInit {
         this.championnat = data;
         this.pS.getArticlesByChampionnat(this.championnat.id).subscribe((data) => this.articles = data);
         this.tS.getTeamsByChampionnat(this.championnat.id).subscribe((data) => this.teamsList = data);
+        this.cS.getChampionnatStandings(this.championnat.id).subscribe((data) => this.standingsList = data)
       });
     });
   }
 
-  getExtract(txt, max = 250){
+  getExtract(txt, max = 150){
     if(txt.length >= max){
         txt = txt.substr(0, max);
         let result = txt.lastIndexOf(' ');

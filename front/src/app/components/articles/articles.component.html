@@ -12,7 +12,7 @@
                 <ul class="d-flex flex-wrap justify-content-between">
                     <li *ngFor="let team of teams.equipes">
                         <a routerLink="/clubs/{{ getUri(team?.name).toLowerCase() }}/actualites">
-                            <img src="{{ team.crestUrl }}" alt="{{ team.name }}">
+                            <img src="{{ team?.crestUrl }}" alt="{{ team?.name }}">
                         </a>
                     </li>
                 </ul>
@@ -21,21 +21,22 @@
         <div class="col-8 breadcrumb">
             <p><a [routerLink]="['/']">Acceuil</a> / {{championnat?.name}}</p>
         </div>
-        <div *ngFor="let article of articles">
+        <div >
             <div class="row">
-                <div class="col-md-8">
-                    <article>
+                <div class="col-md-7">
+                    <p class="infos-posts" *ngIf="articles.length <= 0"><i class="fas fa-exclamation-triangle"></i> Pas de d'articles pour {{ championnat?.name }}</p>
+                    <article *ngFor="let article of articles">
                         <div class="post-card-news">
                             <div class="row">
-                                <div class="col-4">
+                                <div class="col-5">
                                     <a [routerLink]="['/articles/', article?._id]">
-                                        <img class="img-fluid" src="{{article?.image}}" alt="{{ article?.titre | titlecase }}">
+                                        <img class="img-fluid" src="assets/images/{{article?.image}}" alt="{{ article?.titre | uppercase }}">
                                     </a>
                                 </div>
-                                <div class="col-8">
+                                <div class="col-7">
                                     <div class="col-md-12 post-content">
                                         <a routerLink="/{{article?.championnat.url}}/{{article?._id}}"><h2 class="post-title">{{ article?.titre | uppercase }}</h2></a>
-                                        <p class="author">Publié le : {{ article?.dateCreation | date: 'dd/MM/yyy'}}, par {{ article?.autheur.nom }}</p>
+                                        <p class="author">Publié le : {{ article?.dateCreation | date: 'dd/MM/yyy'}}, par {{ article?.autheur?.nom }}</p>
                                         <p class="post-desc">{{ getExtract(article?.contenu) }}</p>
                                     </div>
                                 </div>
@@ -43,14 +44,44 @@
                         </div>
                     </article>
                 </div>
+                <div class="col-md-5">
+                    <table class="table">
+                        <thead class="thead-blue">
+                            <tr>
+                                <th>#</th> 
+                                <th> </th> 
+                                <th>Equipes</th>
+                                <th><abbr title="Points">Pts</abbr></th>
+                                <th><abbr title="Journée">J</abbr></th>
+                                <th><abbr title="Victoires">V</abbr></th>
+                                <th><abbr title="Nuls">N</abbr></th>
+                                <th><abbr title="Défaites">D</abbr></th>
+                                <th><abbr title="Différence">Dif</abbr></th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let standing of standingsList?.standings">
+                            <tr *ngFor="let s of standing?.table">
+                                <td>{{ s?.position }}</td>
+                                <td><img src="{{ s?.team?.crestUrl }}" alt="{{ s?.team?.name }}"></td>
+                                <td>{{ s?.team?.name }}</td>
+                                <td>{{ s?.points }}</td>
+                                <td>{{ s?.playedGames }}</td>
+                                <td>{{ s?.won }}</td>
+                                <td>{{ s?.draw }}</td>
+                                <td>{{ s?.lost }}</td>
+                                <td>{{ s?.goalDifference }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
             <div class=" col-8 pagination d-flex flex-row justify-content-center">
                 <a href="#">Actualité Précedante</a>
                 <a href="#">Actualité Suivante</a>
             </div>
-        </div>
+        </div> -->
     </div>
 </section>
 <!-- End Section Championnat Article -->

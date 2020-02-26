@@ -1,0 +1,28 @@
+
+<h1 class="h1-admin text-center">Liste des Articles</h1>
+<div class="container">
+    <table class="table-list-annonces">
+        <thead>
+            <tr>
+                <th>Date</th> 
+                <th>Titre</th>
+                <th>Payant</th>
+                <th>Championnats</th>
+                <th>Equipes</th>
+                <th>Auteur</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let article of articles">
+                <td>{{ article?.dateCreation | date: 'dd/MM/yyy' }}</td>
+                <td>{{ article?.titre | titlecase }}</td>
+                <td>{{ article.payant }}</td>
+                <td>{{ article?.championnat?.name }}</td>
+                <td>{{ article?.teams?.name }}</td>
+                <td>{{ article?.autheur?.nom }}</td>
+                <td><a >Modifier</a> - <a (click)="onDelete(article?._id)">Supprimer</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

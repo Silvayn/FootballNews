@@ -17,6 +17,7 @@ export class Championnat {
         winner: Number;
     };
     lastUpdate: String;
+    url: string;
 
     constructor(id: Number, name: String, code: string, emblemUrl: String, plan: string, lastUpdate: String) {
         this.id = id;

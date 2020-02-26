@@ -18,6 +18,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
+import { AdminModule } from './admin/admin.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +39,8 @@ import { AuthGuard } from './guards/auth.guard';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    FlashMessagesModule.forRoot()
+    FlashMessagesModule.forRoot(),
+    AdminModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { apiUrl } from 'src/environments/environment';
 
 @Injectable({
@@ -28,5 +28,15 @@ export class ChampionnatsService {
   getChampionnatById(id: number) {
     return this.http.get(apiUrl.championnats + '/' + id);
   }
+
+  getChampionnatStandings(id){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'X-Auth-Token': 'eda9f01bea6145e9bb8f1ece137021b9'
+      })
+    };
+    return this.http.get('http://api.football-data.org/v2/competitions/'+id+'/standings?standingType=TOTAL', httpOptions);
+  }
+
 
 }

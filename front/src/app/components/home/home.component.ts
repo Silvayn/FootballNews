@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
     this.p.getArticles().subscribe((data) => {this.articles = data});
   }
 
-  getExtract(txt, max = 250){
+  getExtract(txt, max = 150){
     if(txt.length >= max){
         txt = txt.substr(0, max);
         let result = txt.lastIndexOf(' ');

@@ -33,8 +33,10 @@
                 <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                 <div class="container">
                     <div class="row">
-                        <a href="">Actualité 1</a>
-                        <!--<p class="footer-act-date"><small class="text-muted">18-02-2020</small></p>-->
+                      <div *ngFor="let article of articles | slice:0:3">
+                        <a [routerLink]="['/articles/', article?._id]"><h2 class="post-title">{{ article?.titre | uppercase }}</h2></a>
+                        <p class="author">Publié le : {{ article?.dateCreation | date: 'dd/MM/yyy'}}, par {{ article?.autheur?.nom }}</p>
+                      </div>
                     </div>
                 </div>
           </div>

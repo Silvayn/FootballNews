@@ -1,0 +1,46 @@
+<h1 class="h1-admin text-center">Création d'un Article</h1>
+<div class="container">
+    <form (submit)="onSubmit()">
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label for="payant">Article Payant</label>
+                <select [(ngModel)]="payant" id="payant" name="payant" class="custom-select custom-select-sm" required>
+                    <option [value]="false">Non</option>
+                    <option [value]="true">Oui</option>
+                </select>
+            </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1">Image</label>
+                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                      </div>
+                  </div>
+            </div>      
+        <div class="form-group row">
+            <div class="col-12">
+                <input type="text" class="form-control" id="titre" name="titre" [(ngModel)]="titre" placeholder="Titre" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-12">
+                <textarea class="form-control" id="contneu" placeholder="Contenu" name="contenu" [(ngModel)]="contenu" required></textarea>
+                <!-- <editor apiKey="pmktchkm85j3wo18aym7xhy3dp7cfxmcag0h67rp7e8y10la" [(ngModel)]="contenu" name="contenu"></editor> -->
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label for="championnat">Championnat</label>
+                <select [(ngModel)]="championnat" id="championnat" name="championnat" class="custom-select custom-select-sm" required>
+                    <option *ngFor="let championnat of championnatsList" [ngValue]="championnat">{{ championnat?.name }}</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="club">Club</label>
+                <select [(ngModel)]="club" id="club" name="club" class="custom-select custom-select-sm" required>
+                    <option *ngFor="let club of clubsList" [ngValue]="club">{{ club?.name }}</option>
+                </select>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Valider</button>
+    </form>
+</div>
