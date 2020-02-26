@@ -20,7 +20,7 @@ export class ListArticlesComponent implements OnInit {
 
   onDelete(id: string){
     this.pS.deleteArticle(id);
-    this.router.navigate(['/admin/list-articles']);
+    this.router.navigate(['/admin']);
   }
 
 }

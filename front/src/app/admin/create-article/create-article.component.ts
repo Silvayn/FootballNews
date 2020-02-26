@@ -6,6 +6,7 @@ import { ClubsService } from 'src/app/services/clubs.service';
 import { Championnat } from 'src/app/models/championnat.model';
 import { Clubs } from 'src/app/models/clubs.model';
 import { log } from 'util';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-article',
@@ -26,7 +27,7 @@ export class CreateArticleComponent implements OnInit {
   championnat: Championnat;
   club: Clubs;
 
-  constructor(private pS: PostsService, private cS: ChampionnatsService, private clubS: ClubsService) { }
+  constructor(private pS: PostsService, private cS: ChampionnatsService, private clubS: ClubsService, private router: Router) { }
 
   ngOnInit(): void {
     this.cS.getChampionnats().subscribe((data)=>{this.championnatsList = data;
@@ -51,6 +52,7 @@ export class CreateArticleComponent implements OnInit {
     
     this.article = new Post(this.titre, this.dateCreation, this.contenu, this.payant, this.image = "default.jpg", club, championnat);
     this.pS.createArticle(this.article).subscribe();
+    this.router.navigate(['/admin']);
   }
 
 }

@@ -4,7 +4,7 @@
         <div class="form-group row">
             <div class="col-md-6">
                 <label for="payant">Article Payant</label>
-                <select [(ngModel)]="payant" id="payant" name="payant" class="custom-select custom-select-sm">
+                <select [(ngModel)]="payant" id="payant" name="payant" class="custom-select custom-select-sm" required>
                     <option [value]="false">Non</option>
                     <option [value]="true">Oui</option>
                 </select>
@@ -30,13 +30,13 @@
         <div class="form-group row">
             <div class="col-md-6">
                 <label for="championnat">Championnat</label>
-                <select [(ngModel)]="championnat" id="championnat" name="championnat" class="custom-select custom-select-sm">
+                <select [(ngModel)]="championnat" id="championnat" name="championnat" class="custom-select custom-select-sm" required>
                     <option *ngFor="let championnat of championnatsList" [ngValue]="championnat">{{ championnat?.name }}</option>
                 </select>
             </div>
             <div class="col-md-6">
                 <label for="club">Club</label>
-                <select [(ngModel)]="club" id="club" name="club" class="custom-select custom-select-sm">
+                <select [(ngModel)]="club" id="club" name="club" class="custom-select custom-select-sm" required>
                     <option *ngFor="let club of clubsList" [ngValue]="club">{{ club?.name }}</option>
                 </select>
             </div>
