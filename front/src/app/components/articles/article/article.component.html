@@ -9,7 +9,7 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-7">
                 <div class="button-share d-flex justify-content-start">
                     <a href="#" class="btn-facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
                     <a href="#" class="btn-twitter"><i class="fab fa-twitter"></i> Twitter</a>
@@ -32,7 +32,36 @@
                     <a href="#">Actualité Suivante</a>
                 </div>
            </div>
+           <div class="col-md-5">
+            <table class="table">
+                <thead class="thead-blue">
+                    <tr>
+                        <th>#</th> 
+                        <th> </th> 
+                        <th>Equipes</th>
+                        <th><abbr title="Points">Pts</abbr></th>
+                        <th><abbr title="Journée">J</abbr></th>
+                        <th><abbr title="Victoires">V</abbr></th>
+                        <th><abbr title="Nuls">N</abbr></th>
+                        <th><abbr title="Défaites">D</abbr></th>
+                        <th><abbr title="Différence">Dif</abbr></th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let standing of standingsList?.standings">
+                    <tr *ngFor="let s of standing?.table">
+                        <td>{{ s?.position }}</td>
+                        <td><img src="{{ s?.team?.crestUrl }}" alt="{{ s?.team?.name }}"></td>
+                        <td>{{ s?.team?.name }}</td>
+                        <td>{{ s?.points }}</td>
+                        <td>{{ s?.playedGames }}</td>
+                        <td>{{ s?.won }}</td>
+                        <td>{{ s?.draw }}</td>
+                        <td>{{ s?.lost }}</td>
+                        <td>{{ s?.goalDifference }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        
+        </div>
     </div>
 </article>

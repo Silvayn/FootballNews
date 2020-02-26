@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostsService } from 'src/app/services/posts.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ChampionnatsService } from 'src/app/services/championnats.service';
 
 @Component({
   selector: 'app-article',
@@ -10,13 +11,17 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 export class ArticleComponent implements OnInit {
   article;
   id;
-  constructor(private p: PostsService, private route: ActivatedRoute) { }
+  standingsList;
+  constructor(private p: PostsService, private route: ActivatedRoute, private cS: ChampionnatsService) { }
 
   ngOnInit(){
     // Récupere id dans l'url
     this.route.paramMap.subscribe((params:ParamMap) => {
       this.id = params.get('id');
-      this.p.getArticleById(this.id).subscribe(data => {this.article = data;});
+      this.p.getArticleById(this.id).subscribe(data => {this.article = data;
+      this.cS.getChampionnatStandings(this.article?.championnat?.id).subscribe((data) => this.standingsList = data);
+      });
+      
     });
   }
 
