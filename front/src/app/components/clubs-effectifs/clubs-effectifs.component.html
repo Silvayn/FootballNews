@@ -63,7 +63,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-8">
+            <div class="col-7 section-effectif">
                 <table  class="table-list">
                     <thead class="thead">
                         <tr class="thead-tr">
@@ -90,6 +90,36 @@
                     <td> {{ c?.dateOfBirth | date:'dd/MM/yyy' }}</td>
                     <td>{{ c?.role }}</td>
                     </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-5 section-effectif">
+                <table class="table">
+                    <thead class="thead-blue">
+                        <tr>
+                            <th>#</th> 
+                            <th> </th> 
+                            <th>Equipes</th>
+                            <th><abbr title="Points">Pts</abbr></th>
+                            <th><abbr title="Journée">J</abbr></th>
+                            <th><abbr title="Victoires">V</abbr></th>
+                            <th><abbr title="Nuls">N</abbr></th>
+                            <th><abbr title="Défaites">D</abbr></th>
+                            <th><abbr title="Différence">Dif</abbr></th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let standing of standingsList?.standings">
+                        <tr *ngFor="let s of standing?.table">
+                            <td>{{ s?.position }}</td>
+                            <td><img src="{{ s?.team?.crestUrl }}" alt="{{ s?.team?.name }}"></td>
+                            <td>{{ s?.team?.name }}</td>
+                            <td>{{ s?.points }}</td>
+                            <td>{{ s?.playedGames }}</td>
+                            <td>{{ s?.won }}</td>
+                            <td>{{ s?.draw }}</td>
+                            <td>{{ s?.lost }}</td>
+                            <td>{{ s?.goalDifference }}</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

@@ -14,6 +14,7 @@ export class ClubsArticlesComponent implements OnInit {
   clubUrl: string;
   club;
   articles;
+  standingsList;
 
   constructor(private router: ActivatedRoute, private cS: ChampionnatsService, private pS: PostsService, private clubS: ClubsService) { }
 
@@ -23,11 +24,12 @@ export class ClubsArticlesComponent implements OnInit {
       this.clubS.getTeamsByUrl(this.clubUrl).subscribe((data) =>{
         this.club = data;
         this.pS.getArticlesByClub(this.club.id).subscribe((data) => this.articles = data);
+        this.cS.getChampionnatStandings(2015).subscribe((data) => this.standingsList = data)
       });
     });
   }
 
-  getExtract(txt, max = 250){
+  getExtract(txt, max = 150){
     if(txt.length >= max){
         txt = txt.substr(0, max);
         let result = txt.lastIndexOf(' ');

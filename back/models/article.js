@@ -11,13 +11,14 @@ const articleSchema = new mongoose.Schema({
         id: Number,
         nom: String,
     },
-    championnat: {
-        id: Number,
-        name: String,
-    },
     teams: {
         id: Number,
         name: String,
+    },
+    championnat: {
+        id: Number,
+        name: String,
+        url: String,
     }
     
 }) ;

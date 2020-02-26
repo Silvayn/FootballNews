@@ -1,0 +1,40 @@
+<h1 class="h1-admin text-center">Céation d'un Article</h1>
+<div class="container">
+    <form (submit)="onSubmit()">
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label for="payant">Article Payant</label>
+                <select [(ngModel)]="payant" id="payant" name="payant" class="custom-select custom-select-sm">
+                    <option [value]="false" selected>Non</option>
+                    <option [value]="true">Oui</option>
+                </select>
+            </div>    
+        </div>
+        <div class="form-group row">
+            <div class="col-12">
+                <input type="text" class="form-control" id="titre" name="titre" [(ngModel)]="titre" placeholder="Titre" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-12">
+                <!-- <textarea class="form-control" id="contneu" placeholder="Contenu" name="contenu" [(ngModel)]="contenu" required></textarea> -->
+                <editor apiKey="pmktchkm85j3wo18aym7xhy3dp7cfxmcag0h67rp7e8y10la" [(ngModel)]="contenu" name="contenu"></editor>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <select [(ngModel)]="championnat" name="championnat" class="custom-select custom-select-sm">
+                    <option [selected]>Séléctionnez un Championnat</option>
+                    <option *ngFor="let championnat of championnatsList" value="{{ championnat }}">{{ championnat?.name }}</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <select [(ngModel)]="club" name="championnat" class="custom-select custom-select-sm">
+                    <option [selected]>Sélectionnez un Club</option>
+                    <option *ngFor="let club of clubsList" value="{{ club }}">{{ club?.name }}</option>
+                </select>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Valider</button>
+    </form>
+</div>

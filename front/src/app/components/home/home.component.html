@@ -1,59 +1,68 @@
-<div *ngFor="let article of articles | slice:0:1">
+
     <!-- Section Home -->
     <section class="my-5">
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
-                    <article>
-                        <div class="post-card">
-                            <div class="row">
-                                <div class="col-md-12 post-header">
-                                    <a [routerLink]="['/articles/', article?._id]">
-                                        <img class="img-fluid" src="{{article?.image}}" alt="{{ article?.titre | titlecase }}">
-                                    </a>
-                                </div>
-                                <div class="col-md-12 post-content">
-                                    <a [routerLink]="['/articles/', article?._id]"><h2 class="post-title-main">{{ article?.titre | titlecase }}</h2></a>
-                                    <p class="author">Publié le : {{ article?.dateCreation | date: 'dd/MM/yyy'}}, par {{ article?.autheur.nom }}</p>
-                                    <p class="post-desc-main">{{ getExtract(article?.contenu) }}</p>
+                <div class="col-md-7">
+                    <div class="col-md-12">
+                        <article *ngFor="let article of articles | slice:0:1">
+                            <div class="post-card">
+                                <div class="row">
+                                    <div class="col-md-12 post-header">
+                                        <a [routerLink]="['/articles/', article?._id]">
+                                            <img class="img-fluid" src="{{article?.image}}" alt="{{ article?.titre | titlecase }}">
+                                        </a>
+                                    </div>
+                                    <div class="col-md-12 post-content">
+                                        <a routerLink="/{{article?.championnat.url}}/{{article?._id}}"><h2 class="post-title-main">{{ article?.titre | titlecase }}</h2></a>
+                                        <p class="author">Publié le : {{ article?.dateCreation | date: 'dd/MM/yyy'}}, par {{ article?.autheur?.nom }}</p>
+                                        <p class="post-desc-main">{{ getExtract(article?.contenu) }}</p>
+                                    </div>
                                 </div>
                             </div>
+                        </article>
+                    </div>
+                    <div class="row section-separator">
+                        <div class="col-md-12 section-others-news">
+                            <article *ngFor="let article of articles | slice:1:4">
+                                <div class="post-card-news">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <a [routerLink]="['/articles/', article?._id]">
+                                                <img class="img-fluid" src="{{article?.image}}" alt="{{ article?.titre | uppercase }}">
+                                            </a>
+                                        </div>
+                                        <div class="col-8">
+                                            <div class="col-md-12 post-content">
+                                                <a routerLink="/{{article?.championnat.url}}/{{article?._id}}"><h2 class="post-title">{{ article?.titre | uppercase }}</h2></a>
+                                                <p class="author">Publié le : {{ article?.dateCreation | date: 'dd/MM/yyy'}}, par {{ article?.autheur?.nom }}</p>
+                                                <p class="post-desc">{{ getExtract(article?.contenu) }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
                         </div>
-                    </article>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <table class="table">
+                        <thead class="thead-blue">
+                            <tr>
+                                <th colspan="5">Actualités Flash</th> 
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let article of articles | slice:4:15">
+                            <tr>
+                                <a routerLink="/{{article?.championnat.url}}/{{article?._id}}">
+                                    <td style="color: #a8aeb4;">{{ article?.dateCreation | date: 'HH:mm' }}</td>
+                                    <td>{{ article?.titre | uppercase }}</td>
+                                </a>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </section>
     <!-- End Section Home -->
-</div>
-
-<!-- Section Home -->
-<section class="my-5">
-    <div class="container">
-        <div *ngFor="let article of articles | slice:1">
-            <div class="row">
-                <div class="col-md-8">
-                    <article>
-                        <div class="post-card-news">
-                            <div class="row">
-                                <div class="col-4">
-                                    <a [routerLink]="['/articles/', article?._id]">
-                                        <img class="img-fluid" src="{{article?.image}}" alt="{{ article?.titre | titlecase }}">
-                                    </a>
-                                </div>
-                                <div class="col-8">
-                                    <div class="col-md-12 post-content">
-                                        <a [routerLink]="['/articles/', article?._id]"><h2 class="post-title">{{ article?.titre | uppercase }}</h2></a>
-                                        <p class="author">Publié le : {{ article?.dateCreation | date: 'dd/MM/yyy'}}, par {{ article?.autheur.nom }}</p>
-                                        <p class="post-desc">{{ getExtract(article?.contenu) }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Section Home -->

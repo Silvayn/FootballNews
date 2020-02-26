@@ -16,3 +16,6 @@ GET http://localhost:8080/teams?team=2021
 
 #################################
 GET http://localhost:8080/clubs?club=nimes-olympique
+
+#################################
+DELETE http://localhost:8080/articles/5e55000dcac217237498c5ea

@@ -13,6 +13,7 @@ export class ClubsEffectifsComponent implements OnInit {
 
   clubUrl: string;
   club;
+  standingsList;
 
   constructor(private router: ActivatedRoute, private cS: ChampionnatsService, private pS: PostsService, private clubS: ClubsService) { }
 
@@ -23,6 +24,7 @@ export class ClubsEffectifsComponent implements OnInit {
         this.club = data;
       });
     });
+    this.cS.getChampionnatStandings(2015).subscribe((data) => this.standingsList = data)
   }
 
   getUri(txt: string) {
