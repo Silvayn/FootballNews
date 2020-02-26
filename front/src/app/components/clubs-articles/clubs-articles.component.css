@@ -7,6 +7,10 @@ a {
     font-size: 22px;
     margin: 15px 0;
 }
+.infos-posts {
+    font-weight: 600;
+    font-size:16px;
+}
 .author {
     color: #a8aeb4;
     font-size: 14px;

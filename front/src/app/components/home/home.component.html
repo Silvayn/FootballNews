@@ -10,7 +10,7 @@
                                 <div class="row">
                                     <div class="col-md-12 post-header">
                                         <a [routerLink]="['/articles/', article?._id]">
-                                            <img class="img-fluid" src="{{article?.image}}" alt="{{ article?.titre | titlecase }}">
+                                            <img class="img-fluid" src="assets/images/{{article?.image}}" alt="{{ article?.titre | titlecase }}">
                                         </a>
                                     </div>
                                     <div class="col-md-12 post-content">
@@ -29,7 +29,7 @@
                                     <div class="row">
                                         <div class="col-4">
                                             <a [routerLink]="['/articles/', article?._id]">
-                                                <img class="img-fluid" src="{{article?.image}}" alt="{{ article?.titre | uppercase }}">
+                                                <img class="img-fluid" src="assets/images/{{article?.image}}" alt="{{ article?.titre | uppercase }}">
                                             </a>
                                         </div>
                                         <div class="col-8">

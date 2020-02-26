@@ -12,7 +12,7 @@
                 <ul class="d-flex flex-wrap justify-content-between">
                     <li *ngFor="let team of teams.equipes">
                         <a routerLink="/clubs/{{ getUri(team?.name).toLowerCase() }}/actualites">
-                            <img src="{{ team.crestUrl }}" alt="{{ team.name }}">
+                            <img src="{{ team?.crestUrl }}" alt="{{ team?.name }}">
                         </a>
                     </li>
                 </ul>
@@ -24,12 +24,13 @@
         <div >
             <div class="row">
                 <div class="col-md-7">
+                    <p class="infos-posts" *ngIf="articles.length <= 0"><i class="fas fa-exclamation-triangle"></i> Pas de d'articles pour {{ championnat?.name }}</p>
                     <article *ngFor="let article of articles">
                         <div class="post-card-news">
                             <div class="row">
                                 <div class="col-5">
                                     <a [routerLink]="['/articles/', article?._id]">
-                                        <img class="img-fluid" src="{{article?.image}}" alt="{{ article?.titre | uppercase }}">
+                                        <img class="img-fluid" src="assets/images/{{article?.image}}" alt="{{ article?.titre | uppercase }}">
                                     </a>
                                 </div>
                                 <div class="col-7">

@@ -24,7 +24,7 @@ export class Post {
   };
 
 
-  constructor(t: string, d: Date, c: string, p: boolean, i: string = "", teams, championnat) {
+  constructor(t: string, d: Date, c: string, p: boolean, i: string, teams, championnat) {
     this.titre = t;
     this.dateCreation = d;
     this.contenu = c;

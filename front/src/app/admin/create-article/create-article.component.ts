@@ -5,6 +5,7 @@ import { ChampionnatsService } from 'src/app/services/championnats.service';
 import { ClubsService } from 'src/app/services/clubs.service';
 import { Championnat } from 'src/app/models/championnat.model';
 import { Clubs } from 'src/app/models/clubs.model';
+import { log } from 'util';
 
 @Component({
   selector: 'app-create-article',
@@ -28,8 +29,10 @@ export class CreateArticleComponent implements OnInit {
   constructor(private pS: PostsService, private cS: ChampionnatsService, private clubS: ClubsService) { }
 
   ngOnInit(): void {
-    this.cS.getChampionnats().subscribe((data)=>{this.championnatsList = data});
-    this.clubS.getTeams().subscribe((data)=>{this.clubsList = data});
+    this.cS.getChampionnats().subscribe((data)=>{this.championnatsList = data;
+      this.clubS.getTeams().subscribe((data)=>{this.clubsList = data});
+    });
+    
   }
 
   onSubmit(){
@@ -40,12 +43,13 @@ export class CreateArticleComponent implements OnInit {
       name: this.club.name
     } 
 
-     let championnat = {
+    let championnat = {
       id : this.championnat.id,
       name: this.championnat.name,
       url: this.championnat.url
     }
-    this.article = new Post(this.titre, this.dateCreation, this.contenu, this.payant, this.image = "", club, championnat);
+    
+    this.article = new Post(this.titre, this.dateCreation, this.contenu, this.payant, this.image = "default.jpg", club, championnat);
     this.pS.createArticle(this.article).subscribe();
   }
 
