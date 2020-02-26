@@ -5,10 +5,12 @@ import { ArticleComponent } from './components/articles/article/article.componen
 import { ArticlesComponent } from './components/articles/articles.component';
 import { ClubsArticlesComponent } from './components/clubs-articles/clubs-articles.component';
 import { ClubsEffectifsComponent } from './components/clubs-effectifs/clubs-effectifs.component';
-
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent }, // HomePage
+  { path: '', component: HomeComponent}, // HomePage
   {
     path: 'championnat',
     children: [
@@ -25,7 +27,9 @@ const routes: Routes = [
     },
     ]
   },
-  { path: ':championnat/:id', component: ArticleComponent, pathMatch: 'full' } // Détail Article
+  { path: ':championnat/:id', component: ArticleComponent, pathMatch: 'full' },   // Détail Article
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({

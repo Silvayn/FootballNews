@@ -10,7 +10,9 @@ export const apiUrl = {
   articles: 'http://localhost:8080/articles',
   championnats: 'http://localhost:8080/championnats',
   teams: 'http://localhost:8080/teams',
-  clubs: 'http://localhost:8080/clubs'
+  clubs: 'http://localhost:8080/clubs',
+  register : 'http://localhost:8080/users/register',
+  auth : 'http://localhost:8080/users/auth'
 };
 
 /*

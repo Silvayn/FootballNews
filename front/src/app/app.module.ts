@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,7 +14,10 @@ import { ArticleComponent } from './components/articles/article/article.componen
 import { HttpClientModule } from '@angular/common/http';
 import { ClubsArticlesComponent } from './components/clubs-articles/clubs-articles.component';
 import { ClubsEffectifsComponent } from './components/clubs-effectifs/clubs-effectifs.component';
-
+import { RegisterComponent } from './components/register/register.component';
+import { FlashMessagesModule } from 'angular2-flash-messages';
+import { LoginComponent } from './components/login/login.component';
+import { AuthGuard } from './guards/auth.guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,13 +28,18 @@ import { ClubsEffectifsComponent } from './components/clubs-effectifs/clubs-effe
     ArticleComponent,
     ClubsArticlesComponent,
     ClubsEffectifsComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    FlashMessagesModule.forRoot()
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

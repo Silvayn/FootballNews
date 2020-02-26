@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChampionnatsService } from 'src/app/services/championnats.service';
+import { UserService } from 'src/app/services/user.service';
+import{Router} from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -18,7 +20,9 @@ export class MenuComponent implements OnInit {
     { 'Europe': 'Coupe d\'Europe' }
   ];
 
-  constructor(private champ: ChampionnatsService) { }
+  constructor(private champ: ChampionnatsService ,
+     public  _userService : UserService,
+     private _router : Router) { }
 
   ngOnInit() {
     this.championnats = [];
@@ -33,5 +37,9 @@ export class MenuComponent implements OnInit {
     });
 
   }
-
+  onLogOutClicked(){
+    this._userService.logOut();
+    this._router.navigate(['/login']);
+    return false;
+  }
 }

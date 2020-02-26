@@ -16,3 +16,20 @@ GET http://localhost:8080/teams?team=2015
 
 #################################
 GET http://localhost:8080/clubs?club=satde-de-reims
+############################################
+POST http://localhost:8080/users/register
+Content-Type: application/json
+
+{
+  "name": "fefvndfvndfefmardi1",
+  "email": "fefz cx fzmardi1@example.com",
+  "password": "mardi1"
+}
+##############################
+POST http://localhost:8080/users/auth
+Content-Type: application/json
+
+{
+  "email": "petitbogoss@example.com",
+  "password": "bogoss13"
+}
