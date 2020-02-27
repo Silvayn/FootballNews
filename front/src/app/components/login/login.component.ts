@@ -37,13 +37,12 @@ export class LoginComponent implements OnInit {
     this._userService.auth(user).subscribe(
       resp => {
         if (!resp['success']) {
-          this._flash.show("compte n'existe pas ou mot de passe incorrect", { cssClass: 'alert-danger'});
+          this._flash.show("ce compte n'existe pas ou le mot de passe est incorrect", { cssClass: 'alert-danger'});
           return false;
         }
-
         this._userService.saveUserDate(resp['token'], resp['user']);
-        console.log(resp)
-        this._flash.show('connection etablie', { cssClass: 'alert-success' } );
+        let name =  JSON.parse(localStorage.getItem("home_user")).name;   
+        this._flash.show('Ravi de vous revoir ' + name, { cssClass: 'alert-success' } );
         this._router.navigate(['/']);
         
       }

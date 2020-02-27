@@ -15,28 +15,16 @@ GET http://localhost:8080/articles?championnat=2021
 GET http://localhost:8080/teams?team=2021
 
 #################################
-<<<<<<< HEAD
-GET http://localhost:8080/clubs?club=satde-de-reims
-############################################
-POST http://localhost:8080/users/register
-Content-Type: application/json
-
-{
-  "name": "fefvndfvndfefmardi1",
-  "email": "fefz cx fzmardi1@example.com",
-  "password": "mardi1"
-}
-##############################
-POST http://localhost:8080/users/auth
-Content-Type: application/json
-
-{
-  "email": "petitbogoss@example.com",
-  "password": "bogoss13"
-}
-=======
 GET http://localhost:8080/clubs?club=nimes-olympique
 
 #################################
 DELETE http://localhost:8080/articles/5e55000dcac217237498c5ea
->>>>>>> 7763ffed8cdfa83b802ec2f795fbbc73a20245d1
+
+#################################
+PATCH  http://localhost:8080/users/5e5677453935863808ef5efd
+Content-type: application/json
+
+{
+    "name": "John Doe",
+    "email": "john@example.com"
+}

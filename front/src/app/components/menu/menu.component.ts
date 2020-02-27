@@ -9,6 +9,8 @@ import{Router} from '@angular/router';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
+  user;
+  admin;
   championnats;
   objectKeys = Object.keys;
   objectValues = Object.values;
@@ -19,6 +21,7 @@ export class MenuComponent implements OnInit {
     { 'Italy': 'Italie' },
     { 'Europe': 'Coupe d\'Europe' }
   ];
+  u: any;
 
   constructor(private champ: ChampionnatsService ,
      public  _userService : UserService,
@@ -26,6 +29,7 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     this.championnats = [];
+    this.admin = this._userService.isAdmin();
     this.pays.forEach(elt => {
       let paysEn = Object.keys(elt)[0];
       var paysFr = Object.values(elt)[0];
@@ -35,11 +39,13 @@ export class MenuComponent implements OnInit {
         this.championnats.push(item);
       });
     });
-
+    
   }
+
   onLogOutClicked(){
     this._userService.logOut();
     this._router.navigate(['/login']);
     return false;
   }
+  
 }

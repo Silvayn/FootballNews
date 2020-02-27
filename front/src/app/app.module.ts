@@ -19,6 +19,10 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AdminModule } from './admin/admin.module';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { FourOhFourComponent } from './components/four-oh-four/four-oh-four.component';
+import { AbonnementComponent } from './components/abonnement/abonnement.component';
+import { OffresComponent } from './components/offres/offres.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,11 @@ import { AdminModule } from './admin/admin.module';
     ClubsArticlesComponent,
     ClubsEffectifsComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    UserEditComponent,
+    FourOhFourComponent,
+    AbonnementComponent,
+    OffresComponent
   ],
   imports: [
     BrowserModule,

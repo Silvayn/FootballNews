@@ -22,9 +22,10 @@ export class Post {
     name: string;
     url: string;
   };
+  video: string;
 
 
-  constructor(t: string, d: Date, c: string, p: boolean, i: string, teams, championnat) {
+  constructor(t: string, d: Date, c: string, p: boolean, i: string, teams, championnat, v: string = '') {
     this.titre = t;
     this.dateCreation = d;
     this.contenu = c;
@@ -32,5 +33,6 @@ export class Post {
     this.image = i;
     this.teams = teams;
     this.championnat = championnat;
+    this.video = v;
   }
 }

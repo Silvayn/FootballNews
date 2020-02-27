@@ -8,6 +8,12 @@ import { ClubsEffectifsComponent } from './components/clubs-effectifs/clubs-effe
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthGuard } from './guards/auth.guard';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { AdminGuard } from './guards/admin.guard';
+import { FourOhFourComponent } from './components/four-oh-four/four-oh-four.component';
+import { AbonnementComponent } from './components/abonnement/abonnement.component';
+import { AbonneGuard } from './guards/abonne.guard';
+import { OffresComponent } from './components/offres/offres.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent}, // HomePage
@@ -30,8 +36,13 @@ const routes: Routes = [
   },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'admin', loadChildren: () => import(`./admin/admin.module`).then(m => m.AdminModule) },
-  { path: ':championnat/:id', component: ArticleComponent, pathMatch: 'full' } // Détail Article
+  { path: 'edit', component: UserEditComponent, canActivate: [AuthGuard] },
+  { path: 'admin', loadChildren: () => import(`./admin/admin.module`).then(m => m.AdminModule), canActivate: [AdminGuard] },
+  { path: 'abonnement', component: AbonnementComponent },
+  { path: 'edit/offres', component: OffresComponent },
+  /* { path: 'not-found', component: FourOhFourComponent },
+  { path: '**', redirectTo: 'not-found' }, */
+  { path: ':championnat/:id', component: ArticleComponent, pathMatch: 'full', canActivate: [AbonneGuard] } // Détail Article
   
 ];
 

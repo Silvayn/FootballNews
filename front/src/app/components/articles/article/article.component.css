@@ -102,3 +102,8 @@ td img {
     width: 20px;
     height: 20px;
 }
+iframe {
+    margin-top:10px;
+    width: 100%!important;
+    padding: 0;
+}

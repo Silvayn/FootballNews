@@ -38,6 +38,12 @@ export class PostsService {
     return this.http.delete<Post>(apiUrl.articles+'/'+id).subscribe();
   }
 
+  getUri(txt: string){
+    let regex = / /gi;
+    let result = txt.replace(regex, '-');
+    return result;
+  }
+
 }
 
 

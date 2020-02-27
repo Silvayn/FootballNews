@@ -7,6 +7,7 @@ import { Championnat } from 'src/app/models/championnat.model';
 import { Clubs } from 'src/app/models/clubs.model';
 import { log } from 'util';
 import { Router } from '@angular/router';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-create-article',
@@ -26,8 +27,9 @@ export class CreateArticleComponent implements OnInit {
   image: string;
   championnat: Championnat;
   club: Clubs;
+  video: string;
 
-  constructor(private pS: PostsService, private cS: ChampionnatsService, private clubS: ClubsService, private router: Router) { }
+  constructor(private pS: PostsService, private cS: ChampionnatsService, private clubS: ClubsService, private router: Router, private _flash :FlashMessagesService,) { }
 
   ngOnInit(): void {
     this.cS.getChampionnats().subscribe((data)=>{this.championnatsList = data;
@@ -37,6 +39,10 @@ export class CreateArticleComponent implements OnInit {
   }
 
   onSubmit(){
+    if(!this.titre || !this.contenu){
+        this._flash.show('Veuillez remplir tous les champs', { cssClass: 'alert-danger' });
+        return false;
+    }
     this.dateCreation = new Date();
     /* this.payant == 0 ? false : true; */
     let club = {
@@ -50,9 +56,9 @@ export class CreateArticleComponent implements OnInit {
       url: this.championnat.url
     }
     
-    this.article = new Post(this.titre, this.dateCreation, this.contenu, this.payant, this.image = "default.jpg", club, championnat);
+    this.article = new Post(this.titre, this.dateCreation, this.contenu, this.payant, this.image = "default.jpg", club, championnat, this.video);
     this.pS.createArticle(this.article).subscribe();
-    this.router.navigate(['/admin']);
+    this.router.navigate(['/admin', 'list-articles']);
   }
 
 }

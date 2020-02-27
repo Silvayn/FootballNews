@@ -34,7 +34,7 @@
                 <div class="container">
                     <div class="row">
                       <div *ngFor="let article of articles | slice:0:3">
-                        <a [routerLink]="['/articles/', article?._id]"><h2 class="post-title">{{ article?.titre | uppercase }}</h2></a>
+                        <a routerLink="/{{article?.championnat.url}}/{{article?._id}}"><h2 class="post-title">{{ article?.titre | uppercase }}</h2></a>
                         <p class="author">Publié le : {{ article?.dateCreation | date: 'dd/MM/yyy'}}, par {{ article?.autheur?.nom }}</p>
                       </div>
                     </div>
