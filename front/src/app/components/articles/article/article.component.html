@@ -23,14 +23,17 @@
                             <img class="img-fluid" src="assets/images/{{ article?.image }}" alt="{{ article?.titre | titlecase }}">
                         </div>
                         <div class="col-md-12 post-content">
+                            <div *ngIf="article?.video" class="col-12 article-video d-flex justify-content-center align-items-center">
+                                <iframe [src]="urlSafe" allowfullscreen="" allow="autoplay" vertical-align="middle" height="340" frameborder="0"></iframe>
+                            </div>
                             <p class="post-desc-main">{{ article?.contenu }}</p>
                         </div>
                     </div>
                 </div>
-                <div class="pagination d-flex flex-row justify-content-center">
+                <!-- <div class="pagination d-flex flex-row justify-content-center">
                     <a href="#">Actualité Précedante</a>
                     <a href="#">Actualité Suivante</a>
-                </div>
+                </div> -->
            </div>
            <div class="col-md-5">
             <table class="table">

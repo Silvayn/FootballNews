@@ -3,6 +3,23 @@ const router = express.Router();
 const jwt = require('jsonwebtoken');
 const User = require('../models/user.js')
 
+// GET USERS user/id
+router.get('/:id',async (req, res) => {
+  try {
+    let user = await User.findOne({ _id: req.params.id});
+    console.log("appel à get user")
+    res.status(200).json(user);
+  } catch (err) { throw err; }
+});
+
+//UPDATE ONE /users/:id
+router.patch('/:id', async (req, res) => {
+  try{
+      let user = await User.updateOne({ _id: req.params.id }, req.body, {new: true});
+  res.status(200).json(user);
+  }catch(err){throw err}
+});
+
 router.post('/auth', (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
@@ -12,7 +29,6 @@ router.post('/auth', (req, res, next) => {
  
   User.findOne(query, (err, user) => {
     
-    console.log(user);
     //erreur pendant l'excution de la requete
     if (err) {
       return res.send({
@@ -50,15 +66,16 @@ router.post('/auth', (req, res, next) => {
       let returnUser = {
         name: user.name,
         email: user.email,
-        id: user._id
+        id: user._id,
+        admin: user.admin,
+        abonne: user.abonne
       }
       //Send the response back
       return res.send({
         success: true,
-        message: 'You can login now',
+        message: 'Loggin',
         user: returnUser,
         token
-
       });
     });
   });
@@ -71,7 +88,6 @@ router.post('/register', (req, res, next) => {
     email: req.body.email,
     password: req.body.password
   });
-  console.log(newUser);
   newUser.save((err, user) => {
     if (err) {
       return res.send({

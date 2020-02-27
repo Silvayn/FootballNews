@@ -12,7 +12,8 @@ export const apiUrl = {
   teams: 'http://localhost:8080/teams',
   clubs: 'http://localhost:8080/clubs',
   register : 'http://localhost:8080/users/register',
-  auth : 'http://localhost:8080/users/auth'
+  auth : 'http://localhost:8080/users/auth',
+  users : 'http://localhost:8080/users'
 };
 
 /*

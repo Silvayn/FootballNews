@@ -19,7 +19,8 @@ const articleSchema = new mongoose.Schema({
         id: Number,
         name: String,
         url: String,
-    }
+    },
+    video: String
     
 }) ;
 const Article =  mongoose.model('Article', articleSchema);

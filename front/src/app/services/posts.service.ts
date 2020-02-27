@@ -52,6 +52,13 @@ export class PostsService {
           console.log(error);
         });
   }
+
+  getUri(txt: string){
+    let regex = / /gi;
+    let result = txt.replace(regex, '-');
+    return result;
+  }
+
 }
 
 

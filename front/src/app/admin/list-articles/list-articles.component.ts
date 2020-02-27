@@ -15,6 +15,7 @@ export class ListArticlesComponent implements OnInit {
   constructor(private pS: PostsService,
      private router: Router,
      private _flash :FlashMessagesService) { }
+  
 
   ngOnInit(): void {
     this.pS.getArticles().subscribe((data)=>{this.articles = data});
@@ -30,6 +31,6 @@ export class ListArticlesComponent implements OnInit {
     this._flash.show('article suprimé', { cssClass: 'alert-success' });
   }
   onUpdate(id: string){
-    this.router.navigate(['/admin/update-article/',id]);
+    this.router.navigate(['/admin/update-article',id]);
   }
 }

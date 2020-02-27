@@ -24,7 +24,7 @@ export class ClubsArticlesComponent implements OnInit {
       this.clubS.getTeamsByUrl(this.clubUrl).subscribe((data) =>{
         this.club = data;
         this.pS.getArticlesByClub(this.club.id).subscribe((data) => this.articles = data);
-        this.cS.getChampionnatStandings(2015).subscribe((data) => this.standingsList = data)
+        this.cS.getChampionnatStandings(this.club.activeCompetitions[0].id).subscribe((data) => this.standingsList = data)
       });
     });
   }

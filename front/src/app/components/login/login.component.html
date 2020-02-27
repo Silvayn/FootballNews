@@ -1,23 +1,26 @@
-<form (submit)="onLogin()" class="form-horizontal">
-
-  <h2>Connexion</h2>
-  <div class="form-group">
-    <label class="col-lg-2 control-label">Email</label>
-    <div class="col-lg-10">
-      <input type="text" class="form-control" [(ngModel)]="email" name="email">
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <form (submit)="onLogin()" class="form-horizontal">
+        <h2 class="text-center">Connexion</h2>
+        <div class="form-group d-flex flex-column justify-content-center align-items-center">
+          <label class="col-lg-6 control-label">Email</label>
+          <div class="col-lg-6">
+            <input type="text" class="form-control" [(ngModel)]="email" name="email">
+          </div>
+        </div>
+        <div class="form-group d-flex flex-column justify-content-center align-items-center">
+          <label class="col-lg-6 control-label">Password</label>
+          <div class="col-lg-6">
+            <input type="password" class="form-control" [(ngModel)]="password" name="password">
+          </div>
+        </div>
+        <div class="form-group d-flex flex-column justify-content-center align-items-center">
+          <div class="pull-right">
+            <button type="submit" class="btn btn-primary">se connecter</button>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
-
-  <div class="form-group">
-    <label class="col-lg-2 control-label">Password</label>
-    <div class="col-lg-10">
-      <input type="password" class="form-control" [(ngModel)]="password" name="password">
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="pull-right">
-      <button type="submit" class="btn btn-primary">se connecter</button>
-    </div>
-  </div>
-
-</form>
+</div>
