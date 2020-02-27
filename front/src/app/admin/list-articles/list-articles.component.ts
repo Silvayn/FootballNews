@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostsService } from 'src/app/services/posts.service';
 import { Router } from '@angular/router';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-list-articles',
@@ -11,16 +12,24 @@ export class ListArticlesComponent implements OnInit {
 
   articles;
 
-  constructor(private pS: PostsService, private router: Router) { }
+  constructor(private pS: PostsService,
+     private router: Router,
+     private _flash :FlashMessagesService) { }
 
   ngOnInit(): void {
     this.pS.getArticles().subscribe((data)=>{this.articles = data});
     
   }
 
-  onDelete(id: string){
-    this.pS.deleteArticle(id);
-    this.router.navigate(['/admin']);
-  }
 
+  
+  onDelete(id: string){
+    
+    this.pS.deleteArticle(id);
+    this.router.navigate(['/admin' ,"list-articles"]);
+    this._flash.show('article suprimé', { cssClass: 'alert-success' });
+  }
+  onUpdate(id: string){
+    this.router.navigate(['/admin/update-article/',id]);
+  }
 }

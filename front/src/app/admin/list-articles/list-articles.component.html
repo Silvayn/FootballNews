@@ -21,7 +21,7 @@
                 <td>{{ article?.championnat?.name }}</td>
                 <td>{{ article?.teams?.name }}</td>
                 <td>{{ article?.autheur?.nom }}</td>
-                <td><a >Modifier</a> - <a (click)="onDelete(article?._id)">Supprimer</a></td>
+                <td><a  (click)="onUpdate(article?._id)">Modifier</a> - <a (click)="onDelete(article?._id)">Supprimer</a></td>
             </tr>
         </tbody>
     </table>

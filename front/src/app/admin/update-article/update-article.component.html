@@ -1,0 +1,19 @@
+<div class="container" (submit)="onSubmit( )" name="articleUpdateForm">
+
+  <form>
+    <div class="form-group">
+      <h2>Modification article</h2>
+      <label for="NameDemo">Titre:</label>
+      <input input [ngModel]="this.article?.titre" (ngModelChange)="article.titre=$event" type="text" name="titre"
+        placeholder="articlename">
+      <small id="nameHelp" class="form-text text-muted">veuillez entrer le nouveau titre </small>
+    </div>
+    <div class="form-group">
+      <label for="EmailDemo">Contenu :</label>
+      <textarea [ngModel]="this.article?.contenu" (ngModelChange)="article.contenu=$event" type="text" name="contenu"
+        placeholder="contenu"></textarea>
+      <small id="emailHelp" class="form-text text-muted">veuillez entrer le nouveau contenu</small>
+    </div>
+    <button type="submit" class="btn btn-success">Modifier</button>
+  </form>
+</div>

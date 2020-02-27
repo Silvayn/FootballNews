@@ -15,7 +15,7 @@ export class PostsService {
     return this.http.get(apiUrl.articles);
   }
 
-  getArticleById(id: number) {
+  getArticleById(id: String) {
     return this.http.get(apiUrl.articles + '/' + id);
   }
 
@@ -37,7 +37,21 @@ export class PostsService {
   deleteArticle(id: string) {
     return this.http.delete<Post>(apiUrl.articles+'/'+id).subscribe();
   }
-
+   // Update Poste
+  updatePost(article) {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+    console.log(article._id)
+    return this.http.patch(apiUrl.articles+'/'+article._id, article,httpOptions).subscribe(
+        res => { 
+          console.log(`${article.titre} updated !`);
+        },
+        error => {
+          console.error('There was an error during the request');
+          console.log(error);
+        });
+  }
 }
 
 

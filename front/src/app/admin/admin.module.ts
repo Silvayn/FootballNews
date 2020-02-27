@@ -12,6 +12,8 @@ import { ClubsService } from '../services/clubs.service';
 import { TeamsService } from '../services/teams.service';
 import { CreateArticleComponent } from './create-article/create-article.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
+import { UpdateArticleComponent } from './update-article/update-article.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,6 +22,8 @@ import { EditorModule } from '@tinymce/tinymce-angular';
     SidebarComponent,
     ListArticlesComponent,
     CreateArticleComponent,
+    UpdateArticleComponent,
+
   ],
   imports: [
     CommonModule,
@@ -28,13 +32,15 @@ import { EditorModule } from '@tinymce/tinymce-angular';
         path: '', component: AdminComponent ,
         children: [
           { path: 'list-articles', component: ListArticlesComponent }, // List All Articles
-          { path: 'create-article', component: CreateArticleComponent }, // List All Articles
+          { path: 'create-article', component: CreateArticleComponent },
+          { path: 'update-article/:id', component: UpdateArticleComponent } // List All Articles
         ]
       },
     ]),
     HttpClientModule,
     FormsModule,
     EditorModule,
+    ReactiveFormsModule
   ],
   providers: [
     ChampionnatsService,
