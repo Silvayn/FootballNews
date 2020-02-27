@@ -22,15 +22,14 @@ export class ListArticlesComponent implements OnInit {
     
   }
 
-
-  
   onDelete(id: string){
-    
     this.pS.deleteArticle(id);
-    this.router.navigate(['/admin' ,"list-articles"]);
+    this.router.navigate(['/admin' ,'list-articles']);
     this._flash.show('article suprimé', { cssClass: 'alert-success' });
   }
+
   onUpdate(id: string){
     this.router.navigate(['/admin/update-article',id]);
   }
+  
 }

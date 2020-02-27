@@ -60,3 +60,8 @@ tbody tr td {
 .table td, .table th {
     padding: 6px 5px;
 }
+@media screen and (max-width: 1110px) {
+    .encart-pub {
+        display: none;
+    }
+  }

@@ -6,6 +6,19 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="favicon.png">
+  <!-- balises servant à décrire le contenu partagé sur les réseaux sociaux -->
+  <meta property="og:title" content="{{article?.titre}}" /> 
+  <meta property="og:image" content="http://localhost:4200/assets/images/{{article?.image}}" /> 
+  <meta property="og:description" content="{{article?.contenu}}" /> 
+  <meta property="og:url" content="localhost:4200/{{ article?.championnat?.url }}/{{article?._id}}">
+  <!-- //TWITTER -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@nytimesbits" />
+  <meta name="twitter:creator" content="@nickbilton" />
+  <meta property="og:url" content="localhost:4200/{{ article?.championnat?.url }}/{{article?._id}}" />
+  <meta property="og:title" content="{{article?.titre}}" />
+  <meta property="og:description" content="{{article?.contenu}}" />
+  <meta property="og:image" content="http://localhost:4200/assets/images/{{article?.image}}" />
   <!-- GOOGLE FONT -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   <!-- FONTAWSOME -->
@@ -13,5 +26,6 @@
 </head>
 <body>
   <app-root></app-root>
+  <script type="text/javascript" src="https://cookiegenerator.eu/cookie.js?position=&amp;skin=cookielaw5&amp;box_radius=1&amp;animation=shake&amp;delay=0&amp;link_color=0058de&amp;msg=FootballNews%20utilise%20des%20cookies%20pour%20vous%20permettre%20de%20profiter%20d'une%20exp%C3%A9rience%20compl%C3%A8te%20et%20optimiser%20le%20fonctionnement%20du%20site.%20Des%20contenus%20publicitaires%20cibl%C3%A9s%20pourront%20aussi%20vous%20%C3%AAtre%20pr%C3%A9sent%C3%A9s.%20%0A%0AVous%20pouvez%20accepter%20ces%20cookies%20en%20cliquant%20sur%20%C2%AB%20Accepter%20%C2%BB.&amp;accept_text=Accepter"></script>
 </body>
 </html>

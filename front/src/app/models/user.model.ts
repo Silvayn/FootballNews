@@ -8,6 +8,7 @@ constructor( n: string = "", e: string, p: string = "", a: boolean = false, admi
     this.abonne = a;
     this.admin = admin;
   }
+  id: string;
   name: string;
   email: string;
   password: string;

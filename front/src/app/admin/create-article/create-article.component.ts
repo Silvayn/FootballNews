@@ -8,6 +8,8 @@ import { Clubs } from 'src/app/models/clubs.model';
 import { log } from 'util';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-create-article',
@@ -28,14 +30,22 @@ export class CreateArticleComponent implements OnInit {
   championnat: Championnat;
   club: Clubs;
   video: string;
+  userId: string;
+  userName: string;
+  user;
 
-  constructor(private pS: PostsService, private cS: ChampionnatsService, private clubS: ClubsService, private router: Router, private _flash :FlashMessagesService,) { }
+  constructor(private pS: PostsService, private cS: ChampionnatsService, private clubS: ClubsService, private router: Router, private _flash :FlashMessagesService, private uS: UserService) { }
 
   ngOnInit(): void {
     this.cS.getChampionnats().subscribe((data)=>{this.championnatsList = data;
       this.clubS.getTeams().subscribe((data)=>{this.clubsList = data});
     });
-    
+    if(this.uS.isLoggedIn){
+      let userId = JSON.parse(localStorage.getItem("home_user")).id;
+      let nauserNameme = JSON.parse(localStorage.getItem("home_user")).name;
+      this.uS.getUserById(userId).subscribe((data)=>{this.user = data;
+      })
+    }
   }
 
   onSubmit(){
@@ -55,8 +65,13 @@ export class CreateArticleComponent implements OnInit {
       name: this.championnat.name,
       url: this.championnat.url
     }
+
+    let autheur = {
+      id: this.user.id,
+      nom: this.user.name
+    }
     
-    this.article = new Post(this.titre, this.dateCreation, this.contenu, this.payant, this.image = "default.jpg", club, championnat, this.video);
+    this.article = new Post(this.titre, this.dateCreation, this.contenu, this.payant, this.image = "default.jpg", autheur, club, championnat, this.video, );
     this.pS.createArticle(this.article).subscribe();
     this.router.navigate(['/admin', 'list-articles']);
   }

@@ -28,7 +28,7 @@
                                 <div class="col-md-12 post-content">
                                     <a routerLink="/{{article?.championnat.url}}/{{article?._id}}"><h2 class="post-title">{{ article?.titre | uppercase }}</h2></a>
                                     <p class="author">Publié le : {{ article?.dateCreation | date: 'dd/MM/yyy'}}, par {{ article?.autheur?.nom }}</p>
-                                    <p class="post-desc">{{ getExtract(article?.contenu) }}</p>
+                                    <p class="post-desc" [innerHTML]="getExtract(article?.contenu)"></p>
                                 </div>
                             </div>
                         </div>

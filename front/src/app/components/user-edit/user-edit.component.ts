@@ -23,7 +23,6 @@ export class UserEditComponent implements OnInit {
   }
 
   submit(e){
-    console.log("submit")
     e.preventDefault()
     this.uS.updateUser(this.user).subscribe((data)=>{this.user = data;});
   }

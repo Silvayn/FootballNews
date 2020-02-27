@@ -25,12 +25,13 @@ export class Post {
   video: string;
 
 
-  constructor(t: string, d: Date, c: string, p: boolean, i: string, teams, championnat, v: string = '') {
+  constructor(t: string, d: Date, c: string, p: boolean, i: string, autheur, teams, championnat, v: string = '') {
     this.titre = t;
     this.dateCreation = d;
     this.contenu = c;
     this.payant = p;
     this.image = i;
+    this.autheur = autheur;
     this.teams = teams;
     this.championnat = championnat;
     this.video = v;

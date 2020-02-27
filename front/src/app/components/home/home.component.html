@@ -16,7 +16,7 @@
                                     <div class="col-md-12 post-content">
                                         <a routerLink="/{{article?.championnat.url}}/{{article?._id}}"><h2 class="post-title-main">{{ article?.titre | titlecase }}</h2></a>
                                         <p class="author">Publié le : {{ article?.dateCreation | date: 'dd/MM/yyy'}}, par {{ article?.autheur?.nom }}</p>
-                                        <p class="post-desc-main">{{ getExtract(article?.contenu) }}</p>
+                                        <p class="post-desc-main" [innerHTML]="getExtract(article?.contenu)"></p>
                                     </div>
                                 </div>
                             </div>
@@ -36,7 +36,7 @@
                                             <div class="col-md-12 post-content">
                                                 <a routerLink="/{{article?.championnat.url}}/{{article?._id}}"><h2 class="post-title">{{ article?.titre | uppercase }}</h2></a>
                                                 <p class="author">Publié le : {{ article?.dateCreation | date: 'dd/MM/yyy'}}, par {{ article?.autheur?.nom }}</p>
-                                                <p class="post-desc">{{ getExtract(article?.contenu) }}</p>
+                                                <p class="post-desc" [innerHTML]="getExtract(article?.contenu)"></p>
                                             </div>
                                         </div>
                                     </div>
@@ -61,6 +61,11 @@
                             </tr>
                         </tbody>
                     </table>
+                    <div class="row">
+                        <div class="col-12 encart-pub">
+                            <a href="https://www.unibet.fr/sport" target="_blank"><img src="assets/images/affiche-unibet-1.png" width="450" height="500"></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

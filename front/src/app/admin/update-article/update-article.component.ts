@@ -11,7 +11,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
   styleUrls: ['./update-article.component.css']
 })
 export class UpdateArticleComponent implements OnInit {
-article   ;
+article;
 id : String
   titre: string;
   contenu: string;
@@ -30,7 +30,6 @@ id : String
 
   onSubmit(){
     this.pS.updatePost(this.article);
-    
     this._router.navigate(['/admin', 'list-articles']);
     this._flash.show('article bien changé ', { cssClass: 'alert-success' });
   }

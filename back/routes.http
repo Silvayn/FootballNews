@@ -40,7 +40,6 @@ GET http://localhost:8080/clubs?club=nimes-olympique
 
 #################################
 DELETE http://localhost:8080/articles/5e55000dcac217237498c5ea
-<<<<<<< HEAD
 ######################################
 PATCH http://localhost:8080/articles/5e4d3bb338e522495d850bc0
 Content-Type: application/json
@@ -48,7 +47,6 @@ Content-Type: application/json
 {
   "titre": "abdel ballon d'or (((("
 }
-=======
 
 #################################
 PATCH  http://localhost:8080/users/5e5677453935863808ef5efd
@@ -58,4 +56,3 @@ Content-type: application/json
     "name": "John Doe",
     "email": "john@example.com"
 }
->>>>>>> dc99cfacfd343eedaa7c1136ddbb8ae92d193b1f

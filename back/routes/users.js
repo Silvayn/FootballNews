@@ -4,20 +4,19 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user.js')
 
 // GET USERS user/id
-router.get('/:id',async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
-    let user = await User.findOne({ _id: req.params.id});
-    console.log("appel à get user")
+    let user = await User.findOne({ _id: req.params.id });
     res.status(200).json(user);
   } catch (err) { throw err; }
 });
 
 //UPDATE ONE /users/:id
 router.patch('/:id', async (req, res) => {
-  try{
-      let user = await User.updateOne({ _id: req.params.id }, req.body, {new: true});
-  res.status(200).json(user);
-  }catch(err){throw err}
+  try {
+    let user = await User.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true });
+    res.status(200).json(user);
+  } catch (err) { throw err }
 });
 
 router.post('/auth', (req, res, next) => {
@@ -26,9 +25,9 @@ router.post('/auth', (req, res, next) => {
 
   const query = { email }
   //Check the user exists
- 
+
   User.findOne(query, (err, user) => {
-    
+
     //erreur pendant l'excution de la requete
     if (err) {
       return res.send({

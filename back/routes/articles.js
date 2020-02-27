@@ -44,7 +44,7 @@ router.post('/', jsonParser, async (req, res) => {
 //DELETE ONE /articles/:id
 router.delete('/:id', async (req, res) => {
   try {
-    let article = await Article.deleteOne({ _id: req.params.id });
+    let article = await Article.findOneAndDelete({ _id: req.params.id });
     res.json(article);
   } catch (err) {
     throw err;
